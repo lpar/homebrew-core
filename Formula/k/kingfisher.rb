@@ -1,17 +1,17 @@
 class Kingfisher < Formula
   desc "MongoDB's blazingly fast secret scanning and validation tool"
   homepage "https://github.com/mongodb/kingfisher"
-  url "https://github.com/mongodb/kingfisher/archive/refs/tags/v1.95.0.tar.gz"
-  sha256 "15823fe7b41cfaf78eb90b4ce93da6c554da73175f3e82efa86f5970f614acd3"
+  url "https://github.com/mongodb/kingfisher/archive/refs/tags/v1.100.0.tar.gz"
+  sha256 "fb410827ff898f4de7f1893d8f554b4aa6b117b20478a1a55774b2c616770d68"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7285c936c4275b98877bd5cc101c8a73a2dd387491cc4afa239adb362bfcc597"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c864d9d107a48c45bd3d6e0daaad0539d1a86ea50b2fd00ffbd71b1b02572963"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47cccf295a6d5addcedeaa8712924d5d555ae233da7acd35c3680f540eb9451a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "35f751381a0d9d3aa9a7d1eb2fff62ff54acfee769defe0e6b71907ea6d082d7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0dbc1f096015aaa8892990c56d54ef1cb48fd847af1e40b7ec7b26b84329118"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f6d64d06569570c6de669b6cbe03d484a34810c670829c105e0e1030897aef5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bbaf28914f1d89b4c1ec49da6c979250e242160f546a73cd063a0b24fd8fdbbe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5abf0f4f6ed309c73030490a30a47076bd5cdfa04a328a670cac057178f1d02"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "efae7bca03c3988620c0129ddc1a008f437dbd7fdf1efc54a6aafe9e514166b3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7b7fed09f737a108a4922560ba78f9b78b2ba3891c26325d22ef8c8e3f175dc0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3456138b1232fc23d10ee310769e2bc40d13a4f4a3538556919b0dd7739bcd10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ec7201a7ed56bc0647e8382ab96478e515d58bfcdeeb780709556607bb91097"
   end
 
   depends_on "boost" => :build

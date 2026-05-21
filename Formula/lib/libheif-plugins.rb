@@ -1,22 +1,21 @@
 class LibheifPlugins < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "https://www.libde265.org/"
-  url "https://github.com/strukturag/libheif/releases/download/v1.21.2/libheif-1.21.2.tar.gz"
-  sha256 "75f530b7154bc93e7ecf846edfc0416bf5f490612de8c45983c36385aa742b42"
+  url "https://github.com/strukturag/libheif/releases/download/v1.22.0/libheif-1.22.0.tar.gz"
+  sha256 "8bd20cfa3201997b8f63266cddfabea2e1481467d7f992e6a2595e0bec691fc2"
   license "LGPL-3.0-or-later"
-  revision 1
 
   livecheck do
     formula "libheif"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9f0e2343c7b9c41b389fc52ebfdda00d5b539ae7eb578547a10eaa3a76413e1c"
-    sha256 cellar: :any,                 arm64_sequoia: "3265320471811110a5f665d788c243a85161e0f6bd908de8c89cc0be10eb5fbb"
-    sha256 cellar: :any,                 arm64_sonoma:  "a616a36464d0764174c9d70df34869fdfd06b11766e5610fc297435cbf68d5b0"
-    sha256 cellar: :any,                 sonoma:        "e7a1d178b138cb1df81636e617661b7fff19ada09a2a4f9a2432e1508dc2f27a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c33f00194f86075c428c5653ced0ac2e19ab9f5b8c31753fa2b50e8e1619f2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d76829f0d1498937fe5fefa2d705500559d333ec08507b5db952c7c0dfe2c6bb"
+    sha256 cellar: :any,                 arm64_tahoe:   "22e51dde874edf10c40a6d5682d6979babef6e5a22ca1d84092dd374e947c3fe"
+    sha256 cellar: :any,                 arm64_sequoia: "9f6c0cbf2a06f9bfb8200f745955475ad27db72cf9f602508f9f080801d03660"
+    sha256 cellar: :any,                 arm64_sonoma:  "8cffa1f094f887be8e898251141d8207d0f31c1c0f463fb09a5a916e460c366c"
+    sha256 cellar: :any,                 sonoma:        "efbe49a4f1614beaade5da665106144fadb8b4ce8f6a08dca1b8ce295ab34da8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "edaf5d52b1e1ae096d2cffb827a6e4fdb47ef4b932665ad37daebe9f8ef88319"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "203d4b37e3c60615d188f05e1cb58a51cfc57727c82c4650f088a3120fa99538"
   end
 
   depends_on "cmake" => :build
@@ -29,11 +28,17 @@ class LibheifPlugins < Formula
   depends_on "openjpeg"
   depends_on "openjph"
   depends_on "rav1e"
+  depends_on "svt-av1"
   depends_on "x264"
+
+  # Fix for missed common_utils.cc in OpenJPEG_DECODER plugin's sources, remove in next release
+  patch do
+    url "https://github.com/strukturag/libheif/commit/b5ccea15c1f62d6dc2301bd0551194f433e91217.patch?full_index=1"
+    sha256 "b74848c61f41e076534511d7b42d9c72f9e9e9c7a3bc6dd1c104381681d7f3e9"
+  end
 
   def install
     # Enabling plugins for "popular" formulae
-    # TODO: Add `SvtEnc` (svt-av1) when new release is compatible
     plugins = %w[
       DAV1D
       FFMPEG_DECODER
@@ -43,6 +48,7 @@ class LibheifPlugins < Formula
       OpenJPEG_ENCODER
       OPENJPH_ENCODER
       RAV1E
+      SvtEnc
       X264
     ]
 
@@ -76,7 +82,7 @@ class LibheifPlugins < Formula
       assert_match encoder, encoders
     end
 
-    system libheif_bin/"heif-enc", test_fixtures("test.jpg"), "--output", "test.hej2"
+    system libheif_bin/"heif-enc", test_fixtures("test.jpg"), "--htj2k", "--output", "test.hej2"
     assert_match "MIME type: image/hej2k", shell_output("#{libheif_bin}/heif-info test.hej2")
   end
 end

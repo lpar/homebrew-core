@@ -1,34 +1,35 @@
 class Expert < Formula
   desc "Official Elixir Language Server Protocol implementation"
   homepage "https://expert-lsp.org"
-  url "https://github.com/elixir-lang/expert/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "209eebddf264407f43848f2d9584210e1869b0103885c1cfab89ce48a2421c36"
+  url "https://github.com/expert-lsp/expert/archive/refs/tags/v0.1.4.tar.gz"
+  sha256 "ff6fc6620672a2d593d6e1db4435e0ab73e2470203e62003773f72a9615dcfc8"
   license "Apache-2.0"
+  head "https://github.com/expert-lsp/expert.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f9f4b95e9ca15c8c2b53c7ee9c346d53c24df1509d1be124868c350b9042c45"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ef5f201bbb3d9d686c40522a172bd791dceeca164e4c61902b7f56b32ca3d36"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8e4d0bdb1935d6edf3ee3ced12625277bef20a197582681b2a4c582899cd9b7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ae7f9ce56676e96018dc3c0bba839567b514432078891ad8712efc4b1faf316f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c80d566b7bf95b48166a9a1737414f6a9d27a2cb067614344e753338a138de1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9158f8ecf797e2b959ef28491256effb3d447ee23b852a8d57075ac6be194e0b"
+    sha256 cellar: :any,                 arm64_tahoe:   "04e776ae268b5b8ad8caadb064949be197ac906a1dea943f7a7f5e8e4b492aab"
+    sha256 cellar: :any,                 arm64_sequoia: "54510bd21db63769e8a58b53dac22c4516a7f09a1b69281bbba129eda53e0a8c"
+    sha256 cellar: :any,                 arm64_sonoma:  "d90f329d9e456874ae22d9a155b7cf156f14d4e84224f6c053a5260054206e26"
+    sha256 cellar: :any,                 sonoma:        "46e94fc3bc8e155fe5806546e7b0a92b80f76839fc66496dc5fb40af9f9d1e86"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "46b053a7007fd473a5bb8ec5d4ceb0f4605580610d94627a378ce39bcde0e238"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd5abf568f9f7b24dbd74cd61ff3c4f2b893026d55e37b29a85ea0acec2e3aef"
   end
 
   depends_on "elixir" => :build
   depends_on "erlang" => :build
   depends_on "just" => :build
-  depends_on "xz" => :build
-  depends_on "zig@0.15" => :build
+  depends_on "openssl@3"
+
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    os = OS.mac? ? "darwin" : "linux"
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-
     system "mix", "local.hex", "--force", "--if-missing"
     system "mix", "local.rebar", "--force", "--if-missing"
-    system "just", "burrito-local"
-
-    bin.install "apps/expert/burrito_out/expert_#{os}_#{arch}" => "expert"
+    system "just", "install", "--prefix=#{prefix}"
   end
 
   test do

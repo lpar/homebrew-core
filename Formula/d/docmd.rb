@@ -1,12 +1,12 @@
 class Docmd < Formula
   desc "Minimal Markdown documentation generator"
-  homepage "https://docmd.mgks.dev/"
-  url "https://registry.npmjs.org/@docmd/core/-/core-0.6.9.tgz"
-  sha256 "27ffdac133fc2b9617b7e5c0f17192d2088bd10f0027104e1f69979154c463fc"
+  homepage "https://docmd.io"
+  url "https://registry.npmjs.org/@docmd/core/-/core-0.8.4.tgz"
+  sha256 "7ae4f8e64589a1b7569dc27398870b12251a688023876b10f58d4a3d8502b40c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "407aeba4b7cbc0a5723653e4df72cee55eadf107b7f860c517c61c9cea85d8f8"
+    sha256 cellar: :any_skip_relocation, all: "84988b767b9efbcdfccfdc65368eaa20a005d4deed9643531ec44945a939d9a4"
   end
 
   depends_on "esbuild" # for prebuilt binaries
@@ -28,7 +28,7 @@ class Docmd < Formula
     assert_match version.to_s, shell_output("#{bin}/docmd --version")
 
     system bin/"docmd", "init"
-    assert_path_exists testpath/"docmd.config.js"
+    assert_path_exists testpath/"docmd.config.json"
     assert_match 'title: "Welcome"', (testpath/"docs/index.md").read
   end
 end

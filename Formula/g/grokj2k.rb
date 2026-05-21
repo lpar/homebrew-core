@@ -1,8 +1,8 @@
 class Grokj2k < Formula
   desc "JPEG 2000 Library"
   homepage "https://github.com/GrokImageCompression/grok"
-  url "https://github.com/GrokImageCompression/grok/releases/download/v20.3.0/source-full.tar.gz"
-  sha256 "291965752e932684cf9c9b197efa15639b290a93099115a0111f37ed6c2308c6"
+  url "https://github.com/GrokImageCompression/grok/releases/download/v20.3.3/source-full.tar.gz"
+  sha256 "2b588f23202e306e0242dd5b2c8b99648bded44f118a31e57ed5dcee75cbc549"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Grokj2k < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fbbf92c6d01809dd16642067e63bab38a68d79eb2181838a00ff72e7375706cf"
-    sha256 cellar: :any,                 arm64_sequoia: "1099ae1038b296b6f785b5f80f2220491991911ce3169cd7f13362bb45973ee1"
-    sha256 cellar: :any,                 arm64_sonoma:  "b44b3047d7e41e1d53c410fa49db6b58dc4851e5861d87db40ecb23e2ae0db61"
-    sha256 cellar: :any,                 sonoma:        "aedfbe91e2c4120b9b2564ed5e7edeedb076c96b9825aa2d6747e2c4ea3ada5e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4094a52ce3ff99841ad8cee6043638e5903ed28fda4d132c8abfe152d8f2e4fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c59eab6fdcafb2994bea7228567b0d25f83eddd2b5c727edccad1fda590bffc7"
+    sha256 cellar: :any,                 arm64_tahoe:   "1ba271d67cc02b08ad7ed9d71aee17e34712286bef890f9c056dc526e129b91b"
+    sha256 cellar: :any,                 arm64_sequoia: "716e1452fca5bde4362ccd94d4dcc84e9345753c8444c6e7e319fe15059d355c"
+    sha256 cellar: :any,                 arm64_sonoma:  "60bd73a32fac223b65f60a9b83f8692448b2830793135a28584c2a62fb781c0b"
+    sha256 cellar: :any,                 sonoma:        "cda5aa3be9816cb070dde8bad65665993bcebdce1c8761803330807cd0a30e64"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f3e646d656845f9be4bb1cde98b8a561dee64456a603db68400ce2bd5c95c83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cb06e986def49b1e364d44e04871ba49d6aaf9aa49dfe75d88a75831cb2ccde"
   end
 
   depends_on "cmake" => :build

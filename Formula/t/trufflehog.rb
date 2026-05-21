@@ -1,19 +1,19 @@
 class Trufflehog < Formula
   desc "Find and verify credentials"
   homepage "https://trufflesecurity.com/"
-  url "https://github.com/trufflesecurity/trufflehog/archive/refs/tags/v3.94.3.tar.gz"
-  sha256 "82858e6d0651e17c5593dc49085d17a519b4cd2aded688314fc20fb7e46c1a69"
+  url "https://github.com/trufflesecurity/trufflehog/archive/refs/tags/v3.95.3.tar.gz"
+  sha256 "99d88bb86e4ad33c5399e057ad091cda771b66f3b2ea60e23784049e7deca442"
   # upstream license ask, https://github.com/trufflesecurity/trufflehog/issues/1446
   license "AGPL-3.0-only"
   head "https://github.com/trufflesecurity/trufflehog.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "312c658d3e0b0877e4bbd7eb50bf5b06dab467e31706b1b2c19af7c1821d0e4e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "831b339c3d66bfb377876fc0bd3f2efb9c31d2a4af9040b4f28e1df202730be3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "135dc04f15152c365a217b832546d5b7b6b9332ed9e1716c7702b16f252fc8aa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "49d7158d166b3b2b9f55867df9fe0ce3ecda6366f22870095abea8aa09e1b977"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c82167b6e35ca26f385bc6c054feff1518c380e2b249182001de03cb5cc28c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "660d0f673359f4f0b5ee2babb06d233f73eadda97b0cf6b2c0e906f7345b7c11"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e53f6cf8cdaefaf31a665e0956496ee94ca3dd4dd78ac5496d9924fe46d9be47"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af073cd3ba01481b2c2e747e6dbe1a0e0b1a75afbbd29f4b83313bc6552f1132"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52ef9952828a31893704d330fa81123f25d64c7c3b955cd426c101b0d5ae8c75"
+    sha256 cellar: :any_skip_relocation, sonoma:        "764a721560a553f6565ef6ccf6a9085366c985ed14d74e3ca822198a2b8caaa4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6387c0d3e0303f57af2cc9b6c1e45c43d1d8874a9e487f3babb2324ff83b1c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b138e5c688065252720727dd261c1e5dadd5bb9e6fd6cd52f926e3ec14ada676"
   end
 
   depends_on "go" => :build
@@ -21,6 +21,7 @@ class Trufflehog < Formula
   def install
     ldflags = "-s -w -X github.com/trufflesecurity/trufflehog/v3/pkg/version.BuildVersion=#{version}"
     system "go", "build", *std_go_args(ldflags:)
+    man1.install "docs/man/trufflehog.1"
   end
 
   test do

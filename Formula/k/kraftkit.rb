@@ -1,8 +1,8 @@
 class Kraftkit < Formula
   desc "Build and use highly customized and ultra-lightweight unikernel VMs"
   homepage "https://unikraft.org/docs/cli"
-  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.12.9.tar.gz"
-  sha256 "de523f08f57ffd56635651f10f007206d197a31f273fc665b4f4f61dc3f74f12"
+  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.12.11.tar.gz"
+  sha256 "25eff0cbe79527a3ccb792d238a7df8a76c4d505db6015f16b27be1d8be40e51"
   license "BSD-3-Clause"
   head "https://github.com/unikraft/kraftkit.git", branch: "staging"
 
@@ -12,21 +12,15 @@ class Kraftkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "720b068e2f6ddd70354bc76430bb98e7486918dcf55ee5d59f2d87592edd0802"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "867972514d8e7d02946e5f2963d340c296974579ed5a1e7c67fe163f21c1ffcd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "886542c26a488081bfea9253ec51a1a7d7dc53e3fe33fff8d9f297d82895bd62"
-    sha256 cellar: :any_skip_relocation, sonoma:        "52db52c1c4c858ae322efeb672d723a9a2b6ede5b7a1d724d60f0b9352b0c495"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "676cdec9d96e9d74b43c80ccd0e1fbe6861561c8b8bdf0c741dc80e0688a4fdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31b275888916740f7b5a41bd9841f85ad08fca02015e20237354962663e3d561"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa76637f084c45dce2a0c02389e8c9beb333587664f5e779d8cc16cee7c2f1c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65f4f4f24b07ee417c8b96ab0b8e3712cbe78537e595ad898ea850c2d60868d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c53916d5576bca5553a24fcc56a6b2d5a2249374bede73fd1485911b2ddd60f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "46bf368d7a9ff9381ba4b329377594334bda8ea90ef22313c4dc4f58ad33183e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e472f1bbbf79857f32c7893c4b815b6ee953d5b498075dcd5198c6f211f68bfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25ae0c93927fdd73e40d0921b5b25b418d215b04fdb08a696c04a16de8d0fa99"
   end
 
   depends_on "go" => :build
-  depends_on "pkgconf" => :build
-  depends_on "gpgme"
-
-  on_linux do
-    depends_on "btrfs-progs"
-  end
 
   def install
     ENV["CGO_ENABLED"] = "1"

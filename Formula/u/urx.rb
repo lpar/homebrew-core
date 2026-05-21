@@ -16,14 +16,8 @@ class Urx < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  on_linux do
-    depends_on "openssl@3"
-  end
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
-
     system "cargo", "install", *std_cargo_args
   end
 

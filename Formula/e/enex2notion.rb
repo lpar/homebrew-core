@@ -6,15 +6,15 @@ class Enex2notion < Formula
   url "https://files.pythonhosted.org/packages/de/5c/c0ce22d810226345411b03177f9b43c35b82c3a671d5d73f56fc43b0858e/enex2notion-0.3.1.tar.gz"
   sha256 "f11d8a7b6c135b4d08c63e1256279d56b3798cdd48ad3b6e39c0770dc3bd82e6"
   license "MIT"
-  revision 18
+  revision 20
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "443c29d5d110b3a8b2a579833e5b6d9037ad25d7990e8e3824d795768d5dde12"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc29902297c00d108638042a6f07815593464d392dfc489766f92023226bac9f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "164ae7172686904d905028499716fb4a40f2dcba5bd2c29f72d0f0e2cdb1d470"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c066b6ac9b4a8ba7f5793783f73811cf7b449ca82af4f0dafa6e139c65754001"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "54eff76e5f08bae3ef399ea2916cee51a194f7dd20c8b28670aad2b47dd71de1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ce8e67f7e4d11f7b668ccec8f8cb707e139bcda14f047c359dfff3452c4f50d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c93378a2060516010ce49e0d1313509b139d0a169cb2377fb1232838a3938bd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9efa3de100e1e3e7f23491c41e17e81439310e8306927d41184c113ec87372d2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "085ec321cb6feab539d6183fc266ff2758bb32538a48ba321759926bcfda346f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "28ad48e66b8e8465ad136a650a32c0fa05fe8d6bb58fb49ac3c5c363e7b36b49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c678cd6e0cdb98443ed54d30fa9a5a5b2f4ccc2e3d69b9d3df1296f2c01d771"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b762486a5fcfac234555d7f694f6c83aae0d1f7713d8de071cc44a9e67c816f2"
   end
 
   depends_on "certifi" => :no_linkage
@@ -24,10 +24,7 @@ class Enex2notion < Formula
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
 
-  # `lxml` is manually updated to support Python 3.14
-  # Issue ref: https://github.com/vzhd1701/enex2notion/issues/126
-
-  pypi_packages exclude_packages: ["certifi", "pymupdf"]
+  pypi_packages exclude_packages: %w[certifi lxml pymupdf]
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
@@ -45,8 +42,8 @@ class Enex2notion < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
-    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "commonmark" do
@@ -60,13 +57,8 @@ class Enex2notion < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
-    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
+    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
   end
 
   resource "notion-vzhd1701-fork" do
@@ -100,8 +92,8 @@ class Enex2notion < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
-    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "six" do
@@ -135,8 +127,8 @@ class Enex2notion < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/5e/a7/c202b344c5ca7daf398f3b8a477eeb205cf3b6f32e7ec3a6bac0629ca975/tzdata-2025.3.tar.gz"
-    sha256 "de39c2ca5dc7b0344f2eba86f49d614019d29f060fc4ebc8a417896a620b56a7"
+    url "https://files.pythonhosted.org/packages/ba/19/1b9b0e29f30c6d35cb345486df41110984ea67ae69dddbc0e8a100999493/tzdata-2026.2.tar.gz"
+    sha256 "9173fde7d80d9018e02a662e168e5a2d04f87c41ea174b139fbef642eda62d10"
   end
 
   resource "tzlocal" do
@@ -145,8 +137,8 @@ class Enex2notion < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   resource "w3lib" do
@@ -157,6 +149,17 @@ class Enex2notion < Formula
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
+  end
+
+  # `lxml` is manually updated to support Python 3.14
+  # Issue ref: https://github.com/vzhd1701/enex2notion/issues/126
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+
+    livecheck do
+      skip "Skip until new release with compatible version"
+    end
   end
 
   def install

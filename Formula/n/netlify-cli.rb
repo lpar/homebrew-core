@@ -1,17 +1,17 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-24.11.2.tgz"
-  sha256 "4ba0303f2386fc59e1d74200d2f42049c0fae06635746a4c866506ce6fdde371"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-26.0.2.tgz"
+  sha256 "7fe3be841434f1a82c546349ab775c8698815a5e20301d9cbdbefb989ae03fb9"
   license "MIT"
 
   bottle do
-    sha256                               arm64_tahoe:   "594d9463842c437c75a6d722feca3f21c5c1bb5fa5856911ae9ab2f3f770c672"
-    sha256                               arm64_sequoia: "76b36e5f8d81cbd88fde17e469dffbd7fcc843a092c038b118d083bf7aba11bb"
-    sha256                               arm64_sonoma:  "ac5deab7e9b2b284a493ed20b03fa64fcb87e0ef9341ddd6b418e732c7a51c4b"
-    sha256                               sonoma:        "91e53545d4654463e6d6f3b9f2fd8ab1d963f2966f6d789f766a600e2221e85c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e7fc27dde136d5f0c335576c21ae58cda6c6a64b3a192650dfcd726d2740d40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d8a4f8b65c37047e03ae02c686130c98dec06ff63e1af27a49a30405621547a"
+    sha256                               arm64_tahoe:   "df55d9cadc325c9f85d64d3a0410a562a2cdb7222260c9c918b9b3b6ec81d269"
+    sha256                               arm64_sequoia: "13900b2304dd1511dd62efa1e1c537dee2122a5e941a42cac6c699938f46a001"
+    sha256                               arm64_sonoma:  "5573700c3f7a289cb4ccfa1a511253bb7ccfaea22212427974193457642a6697"
+    sha256                               sonoma:        "29fce0f4337e19f58ff402405c196dbf7f16f6baee8bc6e5f39247d43907eac9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a93a0d3b67d5ae998a6d6e276799f0591079373a6ee59dc441bee3fa24c91c37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b75da8bbba8d93b7ee25d1a1e0ebecab128f4e9adba054416bd4b4e8d199fca"
   end
 
   depends_on "pkgconf" => :build
@@ -31,8 +31,8 @@ class NetlifyCli < Formula
   # Resource needed to build sharp from source to avoid bundled vips
   # https://sharp.pixelplumbing.com/install/#building-from-source
   resource "node-gyp" do
-    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.2.0.tgz"
-    sha256 "8689bbeb45a3219dfeb5b05a08d000d3b2492e12db02d46c81af0bee5c085fec"
+    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.3.0.tgz"
+    sha256 "d209963f2b21fd5f6fad1f6341897a98fc8fd53025da36b319b92ebd497f6379"
   end
 
   def install

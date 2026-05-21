@@ -1,19 +1,18 @@
 class Wasmedge < Formula
   desc "Lightweight, high-performance, and extensible WebAssembly runtime"
   homepage "https://WasmEdge.org/"
-  url "https://github.com/WasmEdge/WasmEdge/releases/download/0.16.1/WasmEdge-0.16.1-src.tar.gz"
-  sha256 "fc256b8be022eb0487549cc2119c57fd12ad402e4130a05263b7aa85e2df89b9"
+  url "https://github.com/WasmEdge/WasmEdge/releases/download/0.17.0/WasmEdge-0.17.0-src.tar.gz"
+  sha256 "f4e341e4c8a1f9d8a67579ed91b447d363edecd3f6f592573eaddfcd993fae2e"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/WasmEdge/WasmEdge.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b74cd16cf0d26056adf5ff7045b7fc62a22786717933f1f49d50b6cf5fd21d2a"
-    sha256 cellar: :any,                 arm64_sequoia: "2051e0817c645a6dda47f6a4e7aa620b61f7035f1897bd2387657708c5c134ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "f6a5895f3068e70639a9ab825d3c4cc4d2c0b9c32deaccb55894827209204cd7"
-    sha256 cellar: :any,                 sonoma:        "6af51419bc3294ade55e569848c81818d668df0b1a47ca39dbe8e3d8683f4fc5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f106a5e86dc8482c9844b7588157e62b222f7a27531efbb4902e57e1017f624e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bae8285dce0643fd38456fb163ecc2e1a0869e841c979d5f87d9bbf8898274cb"
+    sha256 cellar: :any,                 arm64_tahoe:   "615c0eef948c3bbf105c00276b1c50665f7ed9f757cf33883aa0445dce5a87fa"
+    sha256 cellar: :any,                 arm64_sequoia: "2fe9bb85bb23325a7a69a37cd776634ec515eb97974adaa88d37be695ea2d8b0"
+    sha256 cellar: :any,                 arm64_sonoma:  "162b6429735bf72c0213cf86eb7f2a7f351656b58c2c643b07a772f36c9d139b"
+    sha256 cellar: :any,                 sonoma:        "a560be9e7d341e57684c7528ccde414b31ed568ff7dca1c17331362f027459d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc04f608509ed16364241d67303c654b1dcd0e7b3a5221e6013dae110ce58165"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba4935916021264e93d4e33a58fcb884fa505bd2e72de8731dc18e75a483e904"
   end
 
   depends_on "cmake" => :build

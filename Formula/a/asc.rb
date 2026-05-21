@@ -1,18 +1,18 @@
 class Asc < Formula
   desc "Fast, lightweight CLI for App Store Connect"
   homepage "https://asccli.sh"
-  url "https://github.com/rudrankriyam/App-Store-Connect-CLI/archive/refs/tags/1.2.2.tar.gz"
-  sha256 "3534ea61a771ab63547fcb3b3c6deca4b047c9fd381d6df10fc1edf8cae30a7d"
+  url "https://github.com/rorkai/App-Store-Connect-CLI/archive/refs/tags/1.5.0.tar.gz"
+  sha256 "ba55288ada417fa694c5b8ee5dfc36e2708167415da5efd7c0449b51ddc16e7e"
   license "MIT"
-  head "https://github.com/rudrankriyam/App-Store-Connect-CLI.git", branch: "main"
+  head "https://github.com/rorkai/App-Store-Connect-CLI.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a92e80ef1712c44f9be31810f09550d05a913139d08671e64c55b7a2026c664d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d86f25928d29aa36c6048efb9db13545925f98b972e73ab48e763f2a3b55734"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a98857ab4f762164c60f6ccc94c8ef66851834284831715be0cccb012ec1653"
-    sha256 cellar: :any_skip_relocation, sonoma:        "abd1b07e881a9cf54ed7abe6de223aa8d66c05cd8175f46c9ac60811c42cafc5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "89c95ff799b4ecaac51d555ee351c541bbaf46f09f2bb17b739aebd73d9444d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f51f45345d06becb20e72ad630f89490e302a9a0b283a5a4cddaba69a3be2b06"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "742c4a515844c8c94acd812b155fa46da450258f83676c98fbb82fef0b1099cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf0a79e58aa2ef7729cb52039fe6da0ec97adc0766812f3512809ad6272a6d87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "308c2f54f50cb40e689069ffe0d4d7b2965fba4a67e3a1389d1075336e3f76c4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8b7cc7bb869bf60095bafeadb6d1f7698c2b503174915a30c3751fb5f361f64a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98b183917bd6bf3f856339b3c3e57557169e52b8cc31192f9b22874b4c1c3e3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58a7eb114b7731f6ebf29d7c086f7609833e1e09791ab42bf7ace49b4eeebe0f"
   end
 
   depends_on "go" => :build

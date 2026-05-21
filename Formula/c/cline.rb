@@ -1,32 +1,40 @@
 class Cline < Formula
   desc "AI-powered coding agent for complex work"
   homepage "https://cline.bot"
-  url "https://registry.npmjs.org/cline/-/cline-2.14.0.tgz"
-  sha256 "80a92b4adcc54d701b7529d71708da5e76e5a8cbd050a55c90cf8c5030941faa"
+  url "https://registry.npmjs.org/cline/-/cline-3.0.3.tgz"
+  sha256 "760e4c66e4ead40db61f89ad4433546a33507f8182e02d000cf1fe6809e635b3"
   license "Apache-2.0"
 
-  bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "03c2f6278bc5d5d88f9caa9f7d53a6d6f65372f1c9f2bd01ed5b87bccd03e926"
-    sha256 cellar: :any,                 arm64_sequoia: "f0d84cccbb1739e432cc0b928b2835905e116700d297d18edf43ed0601f027d4"
-    sha256 cellar: :any,                 arm64_sonoma:  "f0d84cccbb1739e432cc0b928b2835905e116700d297d18edf43ed0601f027d4"
-    sha256 cellar: :any,                 sonoma:        "360361cd83433d958f9e2741ca2bd65426c299f8c894f52476afcd7e8fb55eb1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "713d771cbd9b2b761250efbc352aa122882c24088345ba077afffd3c85493838"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd2cecba3fa1526cb1f8f5d4877668903b3c6b0c4a22ad4f96a567d422b1b629"
+  livecheck do
+    skip "Newer versions use non-FOSS @anthropic-ai/claude-agent-sdk"
   end
+
+  bottle do
+    sha256                               arm64_tahoe:   "43511eb558407a9c59a2c2c12c4cdb2975ad9bb704b011dee64ac64a71bcf79c"
+    sha256                               arm64_sequoia: "43511eb558407a9c59a2c2c12c4cdb2975ad9bb704b011dee64ac64a71bcf79c"
+    sha256                               arm64_sonoma:  "43511eb558407a9c59a2c2c12c4cdb2975ad9bb704b011dee64ac64a71bcf79c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "09cc546ab926dd32d70d4e0f08182709c1b6f047399aeee7226be413003c688c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc33d4c0597c3ed3bd43f0c2310aca0e139bbb980c5562a9c2a547e2696a6d86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d842c6784f15fe26881c0d6ac7cfa1dd67bc9149e39968145f90996ce7f04564"
+  end
+
+  # As of 3.0.4, cline has a required dependency on non-FOSS @anthropic-ai/claude-agent-sdk
+  # via cline -> @cline/llms -> ai-sdk-provider-claude-code -> @anthropic-ai/claude-agent-sdk
+  #
+  # Also, as of 3.x, npm just installs pre-built binaries so formula no longer meets policy.
+  # Compiling binaries requires Bun which is not available in Homebrew/core.
+  # Ref: https://github.com/cline/cline/blob/main/sdk/apps/cli/DISTRIBUTION.md
+  deprecate! date: "2026-05-18", because: "uses non-FOSS @anthropic-ai/claude-agent-sdk and pre-built binaries"
+  disable! date: "2027-05-18", because: "uses non-FOSS @anthropic-ai/claude-agent-sdk and pre-built binaries"
 
   depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
-
-    # https://docs.brew.sh/Acceptable-Formulae#we-dont-like-binary-formulae
-    app_path = libexec / "lib/node_modules/cline/node_modules/app-path"
-    deuniversalize_machos(app_path / "main") if OS.mac?
   end
 
   test do
-    expected = "Not authenticated. Please run 'cline auth' first to configure your API credentials."
-    assert_match expected, shell_output("#{bin}/cline task --json --plan 'Hello World!'", 1)
+    assert_match "Unauthorized", shell_output("#{bin}/cline task --json --plan 'Hello World!'", 1)
   end
 end

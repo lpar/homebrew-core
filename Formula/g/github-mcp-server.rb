@@ -1,8 +1,8 @@
 class GithubMcpServer < Formula
   desc "GitHub Model Context Protocol server for AI tools"
   homepage "https://github.com/github/github-mcp-server"
-  url "https://github.com/github/github-mcp-server/archive/refs/tags/v0.33.1.tar.gz"
-  sha256 "efd8d39ce8c9841ebd9f67180bd36fd77786bcb3788fc44154b63a68580745f9"
+  url "https://github.com/github/github-mcp-server/archive/refs/tags/v1.0.5.tar.gz"
+  sha256 "f986278faf7fcd58a3386ca59ff5fb770cde5fb37389508199563ff40e5e81fa"
   license "MIT"
   head "https://github.com/github/github-mcp-server.git", branch: "main"
 
@@ -12,12 +12,12 @@ class GithubMcpServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "15829029e285b7566ba3c8f9c5cc2211c85ee272481f40e27d9cd83a683cb3aa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15829029e285b7566ba3c8f9c5cc2211c85ee272481f40e27d9cd83a683cb3aa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15829029e285b7566ba3c8f9c5cc2211c85ee272481f40e27d9cd83a683cb3aa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9bf5960eece7f156deb81dbdb6e0858fba0c07ca5eda5972ededfa5320124da5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "682497ece16b59f42ed657347899446abc36fda87d15202957eabf15e1bff637"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "809544cfde51dce0812ded8828cba7bfdb695c9d71099970de4e3e828e0c6ef3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f8c98596d9934c77f418755898cd4ee8e9cfcf0b5993a0db806621911a5178a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f8c98596d9934c77f418755898cd4ee8e9cfcf0b5993a0db806621911a5178a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f8c98596d9934c77f418755898cd4ee8e9cfcf0b5993a0db806621911a5178a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ba47defc89d4d5fdab5e3c173bb37494386ae9f487b3a4f86e598d1f1158630a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "011c213ed0f1b374283a52afc272893e2448fa39476735913cbc88346a791d55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91bc1df6e94ebf9a5ded096e37441a6eb9565b9520c35585e5aab82391f8f6a6"
   end
 
   depends_on "go" => :build

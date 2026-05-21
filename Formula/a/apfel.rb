@@ -1,19 +1,18 @@
 class Apfel < Formula
   desc "Apple Intelligence from the command-line, with OpenAi-compatible API server"
   homepage "https://apfel.franzai.com"
-  url "https://github.com/Arthur-Ficial/apfel/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "8d568e26488bc85c1380cbbf66c10b4b7dd6ccff42da2f153cf90d9e978ed128"
+  url "https://github.com/Arthur-Ficial/apfel/archive/refs/tags/v1.3.8.tar.gz"
+  sha256 "0a0acbb9376e70562e9bd606724f75c0327226765ea291cdcc8f0a2b3d6a417e"
   license "MIT"
   head "https://github.com/Arthur-Ficial/apfel.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe: "c7756cd1a69029c4b94ca2de78fea97cec15b1954c639b0d57d2c4a6941439a9"
+    sha256 arm64_tahoe: "cd633408995cf286f10ba511739d2821997df1f43f1abd3ebae5b61c7adce0e8"
   end
 
   depends_on xcode: ["26.4", :build]
   depends_on arch: :arm64
   depends_on macos: :tahoe
-  depends_on :macos
 
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"

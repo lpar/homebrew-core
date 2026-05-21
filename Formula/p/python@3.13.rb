@@ -4,22 +4,24 @@ class PythonAT313 < Formula
   url "https://www.python.org/ftp/python/3.13.13/Python-3.13.13.tgz"
   sha256 "f9cde7b0e2ec8165d7326e2a0f59ea2686ce9d0c617dbbb3d66a7e54d31b74b9"
   license "Python-2.0"
+  revision 1
   compatibility_version 1
 
   livecheck do
-    url "https://www.python.org/ftp/python/"
-    regex(%r{href=.*?v?(3\.13(?:\.\d+)*)/?["' >]}i)
+    url "https://www.python.org/downloads/source/"
+    regex(%r{href=.*?/Python[._-]v?(3\.13(?:\.\d+)*)\.t}i)
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ed907abf03958a9deb907c61e7915310504dc8b3f99bc0889ef31afa9961a0a2"
-    sha256 arm64_sequoia: "a972237c2662b9f1a0530d457e3ae5560213facdb59707218c1d479a257e82a5"
-    sha256 arm64_sonoma:  "045732d4f98aa42ca25e6a7278d69ad44fc99f0381b5a84120a391d6bb1e7f38"
-    sha256 tahoe:         "5634acdfa1bcd119e76768914b2c5876a5a8adf1ae52b7feabce88378e0fce2e"
-    sha256 sequoia:       "9770a04cfc7d9f39dd34b22087358a055120f556c4710d9d79d6955195eacbfa"
-    sha256 sonoma:        "2c0169cde20544032224e6aa33b6dc3a99fd145834f95ee00d4f03b584cf520b"
-    sha256 arm64_linux:   "b34b94543059d4b78585347951c48be2ca78ecee2f165657c148335d0e66ee98"
-    sha256 x86_64_linux:  "1f7da7543b2be8802a58e187f3e926294ab68bfd0b890521624898e6d8a3420b"
+    rebuild 1
+    sha256 arm64_tahoe:   "b9fcf3efe9f2b77cf649bba40c72dc1d216cafc94e7762bc45d99e07041021f6"
+    sha256 arm64_sequoia: "46c2c36ab19c56b360a6f3e05e19fbc5410552bc728a588c045d2a6107a53846"
+    sha256 arm64_sonoma:  "7fc4d080d28686d8d3b54bab9c2a1958d35abdf7d6bdb31ec58974ff55cf77df"
+    sha256 tahoe:         "d938748bf044ce7a50f622fbdfb039bddaeba3d13b6c5eb7536bc4973e806fe0"
+    sha256 sequoia:       "690991fc93c9d8a583be51bc1b8fe7d794fa1e5f8ae3ae8c614acef59a4af9b3"
+    sha256 sonoma:        "356e8604188a1446e4d281975d2c071f7645c4a0794476c50c70b8928567d6f0"
+    sha256 arm64_linux:   "26d1c264e1a631fe80c4349a349b40a6fd0b7fef0d030d014452e9f19ce15c45"
+    sha256 x86_64_linux:  "3066469631b118d7a05ff51e5c9d6e3d9839c0daf1b83c1dab0972a3822f4d89"
   end
 
   depends_on "pkgconf" => :build
@@ -36,7 +38,6 @@ class PythonAT313 < Formula
   uses_from_macos "unzip"
 
   on_linux do
-    depends_on "berkeley-db@5"
     depends_on "zlib-ng-compat"
   end
 
@@ -52,18 +53,18 @@ class PythonAT313 < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/48/83/0d7d4e9efe3344b8e2fe25d93be44f64b65364d3c8d7bc6dc90198d5422e/pip-26.0.1.tar.gz"
-    sha256 "c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8"
+    url "https://files.pythonhosted.org/packages/73/7e/d2b04004e1068ad4fdfa2f227b839b5d03e602e47cdbbf49de71137c9546/pip-26.1.tar.gz"
+    sha256 "81e13ebcca3ffa8cc85e4deff5c27e1ee26dea0aa7fc2f294a073ac208806ff3"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/89/24/a2eb353a6edac9a0303977c4cb048134959dd2a51b48a269dfc9dde00c8a/wheel-0.46.3.tar.gz"
-    sha256 "e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803"
+    url "https://files.pythonhosted.org/packages/39/62/75f18a0f03b4219c456652c7780e4d749b929eb605c098ce3a5b6b6bc081/wheel-0.47.0.tar.gz"
+    sha256 "cc72bd1009ba0cf63922e28f94d9d83b920aa2bb28f798a31d0691b02fa3c9b3"
   end
 
   # Modify default sysconfig to match the brew install layout.
@@ -148,7 +149,7 @@ class PythonAT313 < Formula
       args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     else
       args << "--enable-shared"
-      args << "--with-dbmliborder=bdb"
+      args << "--with-dbmliborder="
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -478,7 +479,8 @@ class PythonAT313 < Formula
     assert_match "ModuleNotFoundError: No module named '_gdbm'",
                  shell_output("#{python3} -Sc 'import dbm.gnu' 2>&1", 1)
 
-    # Verify that the selected DBM interface works
+    # Verify that the selected DBM interface works on macOS.
+    # Linux requires installing python-gdbm formula
     (testpath/"dbm_test.py").write <<~PYTHON
       import dbm
 
@@ -489,7 +491,7 @@ class PythonAT313 < Formula
           assert b"foo \\xbd" in db
           assert db[b"foo \\xbd"] == b"bar \\xbd"
     PYTHON
-    system python3, "dbm_test.py"
+    system python3, "dbm_test.py" if OS.mac?
 
     system bin/"pip#{version.major_minor}", "list", "--format=columns"
 

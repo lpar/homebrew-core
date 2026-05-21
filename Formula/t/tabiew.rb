@@ -1,26 +1,28 @@
 class Tabiew < Formula
   desc "TUI to view and query tabular files (CSV,TSV, Parquet, etc.)"
   homepage "https://github.com/shshemi/tabiew"
-  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "3f6a4ac06362b8223e738d9b9293b80b1607f1b98b45b44ac70b438106c0f9f5"
+  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "7f10c6d07ea84e28f2c3b8312ce7f65dc32236a61d9de441817e1a279b5437e7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6b61cbc31bd548f18f54b84ef44de05406a346c84438a28a91a7031f21cf4607"
-    sha256 cellar: :any,                 arm64_sequoia: "621adafa19bf7eb9bb79f1cf9bc9782617336e29894ce48df14c5cb4add0c715"
-    sha256 cellar: :any,                 arm64_sonoma:  "3b3b3a0f6fc3cf5876e558e4521e860ad0884c937532dee3667331a41f2eb9cd"
-    sha256 cellar: :any,                 sonoma:        "f06c6a25998b63e4c19b366b3622b092a09e006bac6ace8f187008cf92cc3b7f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7317a0f171d14e2c8d56d8fc06a2cbfb80c4478fb7ff05e3b68f3433d00ad5ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3bd0d9aaf6d158e86f77f2076dece818aeacda582f81749f4bef27c605b0dbb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5648ef89aa3cb551a9580302c74d779a260f68b7e833fad4f506efe693f088a6"
+    sha256 cellar: :any,                 arm64_sequoia: "f8a33c7ee147a4e4c0917b4a5ee6e526d3c4587269c6dccc7ef1472335802463"
+    sha256 cellar: :any,                 arm64_sonoma:  "98a958f0baf55e15443f9dba8e6b5e1df181784d59d3e10c008a195ce9c892b2"
+    sha256 cellar: :any,                 sonoma:        "6603d0ac91915d22c21ea9683019c4c0d8a17155b57944554deb017cddba666e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0929ce152b00a8108eda93033d38b08973aa55cc6d3cb787088ee3221379d62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12d805a4b38057a66fd15f26dff9b006b8fce4c9f9bfb6b6aa2cd275224c3cc0"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   conflicts_with "watcher", because: "both install `tw` binaries"
 
   def install
+    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix
     system "cargo", "install", *std_cargo_args
 
     man1.install "target/manual/tabiew.1" => "tw.1"

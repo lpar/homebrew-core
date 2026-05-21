@@ -1,19 +1,19 @@
 class Ggml < Formula
   desc "Tensor library for machine learning"
   homepage "https://github.com/ggml-org/ggml"
-  url "https://github.com/ggml-org/ggml/archive/refs/tags/v0.9.11.tar.gz"
-  sha256 "97b6f55df0e5d7c8f7528a443907752ff65c1c66bc0a3b71db2a0664e79c1982"
+  url "https://github.com/ggml-org/ggml/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "b041330a598b5704c48d61b47f86011aa3f37aa03726c5b80805307924e68967"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ggml-org/ggml.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "df416e439f8bd8ad13e51117f2cfc4d27d9e4a131539df232ed284a0b36fbfe4"
-    sha256 arm64_sequoia: "cd2bfda0462dab3ea8186868aa654eb5825788090e1467fb0b96b74a4263c208"
-    sha256 arm64_sonoma:  "879bba174ff0c1cf722136914ec757cd369c99b4804da3c723972db798ea8d22"
-    sha256 sonoma:        "ebbe28048543384ee0e6a8136d42e551b9ae23ed16cc2038785d3fe01768d2d1"
-    sha256 arm64_linux:   "c7421cb5d7d6ca009aeb2d7f06f7788da2c67590803623e282aa758689c616cf"
-    sha256 x86_64_linux:  "6dfe5ece36094fdc25c09b59e8b6bad4b55edeb58ff8a3fdad85c99a4fa58434"
+    sha256 arm64_tahoe:   "e34a22e0f1471c63702bbea95b5ffeabac3b1d6d8cacbc8d1eb19ddc3c51347a"
+    sha256 arm64_sequoia: "6292d02c3ecb92d4fd5ca4034c1fb9c8a69b4a21fb775145b1f142ec6e793e81"
+    sha256 arm64_sonoma:  "9788da6d7ef816cf401edc739d80d7ac34c51ada144788c95467af691615728a"
+    sha256 sonoma:        "98577259736f26f6d00dc5095dee2ceff81bee9a7b0a80e414785678fc3ba99a"
+    sha256 arm64_linux:   "77ae6df44fbb63fa3e8f2b9307bbe17ec436b45dca2e8651e6b91330996b6a1b"
+    sha256 x86_64_linux:  "1c75d1519d106755fd7f4a87a9cb5456da7af2f0c60bbb451c48e667c5fd5678"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -26,6 +26,7 @@ class Ggml < Formula
     depends_on "pkgconf" => :build
     depends_on "shaderc" => :build
     depends_on "openblas"
+    depends_on "spirv-headers"
     depends_on "vulkan-loader"
   end
 
@@ -34,8 +35,8 @@ class Ggml < Formula
 
   # Lengthy test so not worth installing. Shorter examples/tests haven't been ported to new DL backend
   resource "test-backend-ops.cpp" do
-    url "https://raw.githubusercontent.com/ggml-org/ggml/refs/tags/v0.9.11/tests/test-backend-ops.cpp"
-    sha256 "a05c5c1b61f88202af1f237975a68f290a807d50f93f2b539d9de7ca47633f30"
+    url "https://raw.githubusercontent.com/ggml-org/ggml/refs/tags/v0.12.0/tests/test-backend-ops.cpp"
+    sha256 "cc5b21ce121498fb30f3cc90440f7c835ed0a87e6d3c45eb2d3e789a696466ac"
 
     livecheck do
       formula :parent

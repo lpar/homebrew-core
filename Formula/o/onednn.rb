@@ -1,8 +1,8 @@
 class Onednn < Formula
   desc "Basic building blocks for deep learning applications"
   homepage "https://www.oneapi.io/open-source/"
-  url "https://github.com/uxlfoundation/oneDNN/archive/refs/tags/v3.11.2.tar.gz"
-  sha256 "890ce734737b6f6b356bbbad211b2beaa74496a941a99e3f45bff9cad8ce0077"
+  url "https://github.com/uxlfoundation/oneDNN/archive/refs/tags/v3.12.tar.gz"
+  sha256 "efa94db6e8395daaef8e307a48e9527bbaab58a64b44e5d59a3662b4b155099d"
   license "Apache-2.0"
   head "https://github.com/uxlfoundation/oneDNN.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Onednn < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "97eedea76bd095bd06d642fd755c6296cb04412ed48592359f6d221b01d9141f"
-    sha256 cellar: :any,                 arm64_sequoia: "89cb0b4f4b8951bba832ff252e63d2839a4a164c7307e982b9e00679b4e1aed7"
-    sha256 cellar: :any,                 arm64_sonoma:  "dd304924a4b20c26650345e0cffb2354635f05b4695485f518d7eabfb05877ba"
-    sha256 cellar: :any,                 sonoma:        "b85b44ce490a3f599e41b42239a11a24e2aff88a3519d37ac402628de6b620f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "52f689a413a5f2851ad8f43231a5202ee4d96880345837e8179ecec677801ffc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a0c7db7f364aa7ddd5e307a824d68df0c7d95bae6dcfb1377ecac2398d6a39f"
+    sha256 cellar: :any,                 arm64_tahoe:   "39a5c27c065cd85f2283a9b934f2e12419bad36518419a771f83b83375ae4859"
+    sha256 cellar: :any,                 arm64_sequoia: "07255746682fff4e4cd60f5564e42b1a90298509fa304d310d287689587b9432"
+    sha256 cellar: :any,                 arm64_sonoma:  "e877f201103c8a66fa68765ec88ab3884ee99f2f983dc8e96b763c70c8e0932d"
+    sha256 cellar: :any,                 sonoma:        "17c91f2b18b576692bc1c7eb1a5a6a89a41222dbc479537aa753b54460cef294"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "331d2698f264bac5974f4ef18bb7c5097c86a99555ec5da844c4b81ab63c1f46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df694da81fb42f5e65d5c2f4a64985efba9010c42bd47cc0c9c2bf679c37cc73"
   end
 
   depends_on "cmake" => :build

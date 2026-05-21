@@ -1,21 +1,10 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://gdal.org/en/stable/"
+  url "https://github.com/OSGeo/gdal/releases/download/v3.13.0/gdal-3.13.0.tar.gz"
+  sha256 "1eb8c56a8cea4d3c733d90a719540c1aab981e4eb15e03057092e69b2935ae73"
   license "MIT"
-  revision 1
-  compatibility_version 1
-
-  stable do
-    url "https://github.com/OSGeo/gdal/releases/download/v3.12.3/gdal-3.12.3.tar.gz"
-    sha256 "1fdfe51181d08b9b83037b611da4de4a7cf1fca69e6564945ac99d3f7d0367dd"
-
-    # Fix compatibility with new poppler version
-    # https://github.com/OSGeo/gdal/pull/14243
-    patch do
-      url "https://github.com/OSGeo/gdal/commit/0ad9529d5fd5e03880147221d56bfee08383d7dc.patch?full_index=1"
-      sha256 "fba9b0f6591f83b7837c3fc9e649e902b7490f877190a6d9535f969ea5fd87ab"
-    end
-  end
+  compatibility_version 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -23,12 +12,12 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "da4988d3972da0188f0cd25dc1bae927b094bdb0ec3a9f2fde89504eb0651ab8"
-    sha256 arm64_sequoia: "97fb597a0b94044e239ec9ad27bdbdfe8a9086406174392a038a170f0ace0e98"
-    sha256 arm64_sonoma:  "3de6199757030217dc12fb9e3965463afd99281163717a647f856360fbc1a169"
-    sha256 sonoma:        "be7e148351b10e61d92108a861867a811b68735440966c280fda6217eb0cfc1a"
-    sha256 arm64_linux:   "119d5bf7d4dc729af9333d41a69f0977fa9e9c6e10167e2bf137b08d41dfc3c1"
-    sha256 x86_64_linux:  "d4a83643944948a56f8d1ce208a421651e37eb826f663f876ec82c0b7d7f9276"
+    sha256 arm64_tahoe:   "9b2812b4332e7e4f5ab05252e1114166cc6c0e20fce69fda6945b9ca9ee0b997"
+    sha256 arm64_sequoia: "a042fe8d2a96779eae669fd992179a7c06ed2a26d1f5c5a2532f6f7a3c783148"
+    sha256 arm64_sonoma:  "188f10bdd733e768ff91a1af6ac03cabae303d56512185ecfd17ee76253246ee"
+    sha256 sonoma:        "40c26598383f99d1844c99590a45907ab001f1a59a9862ff573f05c2556bdc63"
+    sha256 arm64_linux:   "41343ebf7d274d94be8204494fde301b628b1a1bbad283cd4e2e509d407209f4"
+    sha256 x86_64_linux:  "f7a45e0322e1f00b78efeac74757bb2b8491b8a3d11c41f2a751a46c556652b8"
   end
 
   head do
@@ -134,6 +123,7 @@ class Gdal < Formula
       -DPython_EXECUTABLE=#{which(python3)}
       -DGDAL_PYTHON_INSTALL_LIB=#{site_packages}
       -DCMAKE_CXX_STANDARD=17
+      -DGDAL_USE_OPENMP=OFF
     ]
 
     # JavaVM.framework in SDK causing Java bindings to be built

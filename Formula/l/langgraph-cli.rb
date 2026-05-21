@@ -3,17 +3,18 @@ class LanggraphCli < Formula
 
   desc "Command-line interface for deploying apps to the LangGraph platform"
   homepage "https://www.github.com/langchain-ai/langgraph"
-  url "https://files.pythonhosted.org/packages/ad/42/6320aad6dfe95827e6fbf6a9e835263b554b340c0cf12386cc6a4403471d/langgraph_cli-0.4.21.tar.gz"
-  sha256 "7c03c69d22e0f12267c576cef23b4b29e0a631b83902075c8e75d6c549c9d993"
+  url "https://files.pythonhosted.org/packages/5d/94/6864c94fcc998d7b72f60a4166222f003483426446a10979c0215220dd65/langgraph_cli-0.4.26.tar.gz"
+  sha256 "d81867e45bc198f4c61a4064e8f347aba9e6ffa256db387d8daae594c59bf0f6"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "106ab911b6df5a3dea931d8065b848fb2c3b18b1f106ff463c5911cace1910ea"
-    sha256 cellar: :any,                 arm64_sequoia: "f92e8451e1b53e6cf038ccbe7992ccb05ad5cd5998b928e1ba12debb368e4e75"
-    sha256 cellar: :any,                 arm64_sonoma:  "da8f186ee157f63ecc467227bee3618572171c1a1de7ae9bb5e64a48d4385d9d"
-    sha256 cellar: :any,                 sonoma:        "3fc4b6f87df0bb845152ce7650b41f203abfc99ba7ad66f05d50bfbfcb47cf15"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "138131d0d9e03a7c5d3d84127a1424769246c46bdb9b88a806e3dc97fffe059c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb9714db4563d6efe571490fcf74036c36e12b8c6d8e95d7f8253efcb0cabf14"
+    sha256 cellar: :any,                 arm64_tahoe:   "225433e38f7e97c26c7b17cd06bc53021aaa57c4099926354235bb785e0740af"
+    sha256 cellar: :any,                 arm64_sequoia: "25e7e10b1632783039c4b2fb499b5c0d1a4c1cab6d600c5a84d74aa19c0d0590"
+    sha256 cellar: :any,                 arm64_sonoma:  "bdd8e138ceeb13e2b919c27aa90a82e354e690d543044ab2ff96d5a1b57d775a"
+    sha256 cellar: :any,                 sonoma:        "3b709c06b348dc18f95c4e887d8fbc2450e69032f8329cbb48fd7d1d416400fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "168d0f94d0d1357286a4c88ccd93982bff3de489b6fe948fb413336883123713"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65e9b76f9095e7f0c52eed6a56322ab912d4b2b5a267d0d26da21314b5a40a2b"
   end
 
   depends_on "rust" => :build # for orjson
@@ -29,8 +30,8 @@ class LanggraphCli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
+    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
   end
 
   resource "h11" do
@@ -49,23 +50,23 @@ class LanggraphCli < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
+    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
   end
 
   resource "langgraph-sdk" do
-    url "https://files.pythonhosted.org/packages/0e/db/77a45127dddcfea5e4256ba916182903e4c31dc4cfca305b8c386f0a9e53/langgraph_sdk-0.3.13.tar.gz"
-    sha256 "419ca5663eec3cec192ad194ac0647c0c826866b446073eb40f384f950986cd5"
+    url "https://files.pythonhosted.org/packages/02/f1/134046c20bc4a4a15d410d1d21c9e298a3e9923777b4cc867b8669bc636b/langgraph_sdk-0.3.14.tar.gz"
+    sha256 "acd1674c538e97f3cdaa610f6dd7e34bc9bad30167f0ccc482dcd563325e81f5"
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/9d/1b/2024d06792d0779f9dbc51531b61c24f76c75b9f4ce05e6f3377a1814cea/orjson-3.11.8.tar.gz"
-    sha256 "96163d9cdc5a202703e9ad1b9ae757d5f0ca62f4fa0cc93d1f27b0e180cc404e"
+    url "https://files.pythonhosted.org/packages/7e/0c/964746fcafbd16f8ff53219ad9f6b412b34f345c75f384ad434ceaadb538/orjson-3.11.9.tar.gz"
+    sha256 "4fef17e1f8722c11587a6ef18e35902450221da0028e65dbaaa543619e68e48f"
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/fa/36/e27608899f9b8d4dff0617b2d9ab17ca5608956ca44461ac14ac48b44015/pathspec-1.0.4.tar.gz"
-    sha256 "0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645"
+    url "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz"
+    sha256 "17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a"
   end
 
   resource "python-dotenv" do

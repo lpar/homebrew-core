@@ -1,8 +1,8 @@
 class Composer < Formula
   desc "Dependency Manager for PHP"
   homepage "https://getcomposer.org/"
-  url "https://getcomposer.org/download/2.9.7/composer.phar"
-  sha256 "d3c6801ea6e5dd291d0f149295a4d0f1539a74d5231958fe8fdaa889a497e6cf"
+  url "https://getcomposer.org/download/2.9.8/composer.phar"
+  sha256 "59b2c50e10cafa0d8efc19ede9a326d782f096c674a26baf98cf042ce23de890"
   license "MIT"
 
   livecheck do
@@ -11,21 +11,19 @@ class Composer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a80f6f3a1c84e2595cd19eae297e3b7c9024f62cf618890b9ae1e7ac5c1b23a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a80f6f3a1c84e2595cd19eae297e3b7c9024f62cf618890b9ae1e7ac5c1b23a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a80f6f3a1c84e2595cd19eae297e3b7c9024f62cf618890b9ae1e7ac5c1b23a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "df6be3d8b4c58f2bf96e0b57c51b67def1f6223978b289d7a7f33fe4bd3cfa55"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df6be3d8b4c58f2bf96e0b57c51b67def1f6223978b289d7a7f33fe4bd3cfa55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df6be3d8b4c58f2bf96e0b57c51b67def1f6223978b289d7a7f33fe4bd3cfa55"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d5a24aff23970ace3bcaf7592c0a29348ecf7d5a3263ddcc69f68020380b5f81"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5a24aff23970ace3bcaf7592c0a29348ecf7d5a3263ddcc69f68020380b5f81"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5a24aff23970ace3bcaf7592c0a29348ecf7d5a3263ddcc69f68020380b5f81"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d3707d31956862864bd9bd983b7748e2dd4ca76b53dc4a1adbb3055a7396816d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3707d31956862864bd9bd983b7748e2dd4ca76b53dc4a1adbb3055a7396816d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3707d31956862864bd9bd983b7748e2dd4ca76b53dc4a1adbb3055a7396816d"
   end
 
   depends_on "php"
 
-  # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
+  # Keg-relocation breaks the formula when it replaces the prefix with a non-default value
   on_macos do
-    on_intel do
-      pour_bottle? only_if: :default_prefix
-    end
+    pour_bottle? only_if: :default_prefix
   end
 
   def install

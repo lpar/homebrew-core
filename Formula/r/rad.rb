@@ -1,19 +1,18 @@
 class Rad < Formula
   desc "Modern CLI scripts made easy"
   homepage "https://amterp.dev/rad/"
-  url "https://github.com/amterp/rad/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "7d2215d596fdb6d380761411bf868b7cd451a436efa6dd2153265a7b981e14d2"
+  url "https://github.com/amterp/rad/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "dd9e76d37f9f99f500c037ae1631c58b83d0ba60e96c587b90a7434de7dddb0c"
   license "Apache-2.0"
   head "https://github.com/amterp/rad.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d2ddfb5f50ca27fc4156adbb4f0471db7fc13e095c89fed1eedff83b73b9d00f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2540fee7bd9a821e8d7517251bca660e70d45903e5b532006075a117895c529"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aeabb7881604b0120ea14212ce0f59ed14d683d1eb34ed6e5c96f7c4c42e4916"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d03526abced8126bef2552e41b96b53c94880b6bd98aa51d86cae03c2dc55f43"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d976118e06481472a02d25be38663c68952ea98bf91b17994e2656df0a1c177"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6fc540a6569f8ff546413f349981c20655c466a5046af788472f5fde37679bf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3203254b7a4b9c98880bf5ca8f938b8cc7890c13cfc6c23f6dd8ef42d3d7b9f5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8193e7675e167c3e5ffacbf20d569e446141aca9f00515d0495903f6ef40a41e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c715200a45485630e075743e079e93969b0cdd8e63e00790cd3a5bd1cec0df9a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d73213b7a0a76fa4391e4d4becfc37afc0efd8f4039897213dd0b4cb2709755d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b693bfd935fb3d5e7535e338e50c8c0cc2058f0ccc90da572f85b69e0b4e8bb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a387e44ae1a68ffa0386dc93fff20e0324dd3b0112e3b915e776a87b115182b8"
   end
 
   depends_on "go" => :build

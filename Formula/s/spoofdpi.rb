@@ -1,8 +1,8 @@
 class Spoofdpi < Formula
   desc "Simple and fast anti-censorship tool written in Go"
-  homepage "https://spoofdpi.xvzc.dev"
-  url "https://github.com/xvzc/SpoofDPI/releases/download/v1.3.1/spoofdpi-1.3.1.tar.gz"
-  sha256 "124f4848c2b095538618071700780b506930d033e8a32ae9ba9b606ad66dd6b5"
+  homepage "https://spoofdpi.dev"
+  url "https://github.com/xvzc/SpoofDPI/releases/download/v1.5.3/spoofdpi-1.5.3.tar.gz"
+  sha256 "5c948c8969411dbc0482d62c8ebb19a1d0e4d64aec7753ed673b686c65dae4d8"
   license "Apache-2.0"
   head "https://github.com/xvzc/SpoofDPI.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Spoofdpi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28123e574ccf48335c2d4c560a50592a2fd042a59d75d6fb817da0a4da444d94"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "72740fa322cfc0a1b51fddc770b4d7bcdd8685bee883714a08b8ceb7be85b794"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e682f4b826303fa488859b011a970733876213948ea5702a37123f28f9858a0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "14f0baf3ae84b12f86f95af9b9752da9a4321e8fcc9ac71f48f57e24682ce4c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "590d319b328c80b32d0ca618771da5b59a1c5150b578e85ca79dd7661ba96c79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd95cd2e5aa033a36b22511f336ffe541a8f4ab81dc69d3d307abde6ae2d3cd9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2e631168212bca6fec6f132de41ba3339085432b9a34724b7eb3dbb6e7950122"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59fe319df1427800638209c50a6f2cb78a8476e85c39868c74515c2ba064a9d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc77553af4edfe22b9791ce8e2e6586a1f894e7a3a647199157509581b148cfb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "810d35048180d765431b7797892b55f6e6f039a9fb12187acaa97c722315483e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e1e998d069638b33eeb9c5de62d44844b8f83b43ca83a11b300da4f3edc16e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8930ac9608dc25b6677ea0e2f17d09f1a939c30883eed01752f18a8517e4ae71"
   end
 
   depends_on "go" => :build
@@ -52,7 +52,13 @@ class Spoofdpi < Formula
     assert_match version.to_s, shell_output("#{bin}/spoofdpi -v")
 
     port = free_port
-    pid = spawn bin/"spoofdpi", "--listen-addr", "127.0.0.1:#{port}"
+    pid = if OS.mac?
+      spawn bin/"spoofdpi", "--listen-addr", "127.0.0.1:#{port}"
+    else
+      require "pty"
+      PTY.spawn(bin/"spoofdpi", "--listen-addr", "127.0.0.1:#{port}").last
+    end
+
     begin
       sleep 3
       # "nothing" is an invalid option, but curl will process it

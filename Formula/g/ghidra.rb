@@ -1,8 +1,8 @@
 class Ghidra < Formula
   desc "Multi-platform software reverse engineering framework"
   homepage "https://github.com/NationalSecurityAgency/ghidra"
-  url "https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_12.0.4_build.tar.gz"
-  sha256 "2650b5c5f2615883db347157f88d15f6f06cd14e223156cd6b6034264081f5b4"
+  url "https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_12.1_build.tar.gz"
+  sha256 "bbe3cf874db010516c5170db0a206dce3496680cec3460890271c6a1ed4f6719"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Ghidra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b127dc5cd7460a62937fb94341221b53d2cb424f713482fa69d3412e05b6b779"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e030d0d082c0dc6d2b5c6669671719b8d619e3c9db082021966cc1b05dfb8e2a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "61979e62e4a3a36fea845664f087e75de1aa7563271f298ef888a1c9ab951ddc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f2100cf3fe75867af53608f21896de0856b4c179db2814acd5ef89fb24e885c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e2801dc27010ed14f2e7ea64ebe5d4088bacee2ae454abb8eafb6d4c839cfce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51f334661eac028aa05eb5108e240385db0dfb493ce50f6e18a013f8dc59194d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "321b2e627762f4b19e859d1336eedba4db7fcef384aff2a50e5a3f6ab0dbfafb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8df8af6ed06ecfb53b470566d2e1311d22e77111a973504281fed991932775d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "850b27189d2acbb24e9ad02b629b0ee4ee772f0ea74993045d4def039762965f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4b5ff189b715423c2275a31b5d1c8f18c35e088355b39f5eac3e50f459165c1a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad5e79ee64986bc805a76ad4bcdd22d3cff6012bb1ac61a333876f5db59a7fb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b575ceb6616db277b7355f82eb4d86a1fb2e659e3f0a9e0a9b23b32d5481d585"
   end
 
   depends_on "gradle" => :build
@@ -33,6 +33,8 @@ class Ghidra < Formula
     libexec.install (buildpath/"build/dist/ghidra_#{version}_PUBLIC").children
     (bin/"ghidraRun").write_env_script libexec/"ghidraRun",
                                        Language::Java.overridable_java_home_env("21")
+    (bin/"pyghidraRun").write_env_script libexec/"support/pyghidraRun",
+                                         Language::Java.overridable_java_home_env("21")
   end
 
   test do

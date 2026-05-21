@@ -6,15 +6,16 @@ class Xml2rfc < Formula
   url "https://files.pythonhosted.org/packages/29/0b/44c69b36f09eb20ba238007b39fa2b0e366156477431b32188fb12413591/xml2rfc-3.33.0.tar.gz"
   sha256 "feee8140e394dbc26bc61b1e803f5403a8844aaf4d918703c7f2ab1e850b639c"
   license "BSD-3-Clause"
+  revision 2
   head "https://github.com/ietf-tools/xml2rfc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "52ad1b0f5a2d6a067ce53c079e62862e254c2b8dcdef873c05324edbbefbd623"
-    sha256 cellar: :any,                 arm64_sequoia: "54831384aff027e7f558848da107aa7744bfc61f592f0eba89925e52d40048c5"
-    sha256 cellar: :any,                 arm64_sonoma:  "92571581d5d9d5a950ed0ec8a52cf877a0154c2b3fd974f44916b2aab0dd5bcb"
-    sha256 cellar: :any,                 sonoma:        "5c9962342b926cdc5afb6aad1c7095f52c52299a2200765ed3c7a927fa482b7a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83b0dc5bdf029f80cac3fb989aeb9a1c9d50a6d0f1a297b0cbcb849f27cad31e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28d06a62dad9206357b458276c1468a143cf97992dc0068196e0503455386b57"
+    sha256 cellar: :any,                 arm64_tahoe:   "1bb3ef5648d86bda1ee6df4f69911708bbd216b18e40a563c2a74fbecac2348d"
+    sha256 cellar: :any,                 arm64_sequoia: "8f2dd2dc2551f37b3e20ab11164af7c37cd7b1baad1af3b2d4b3933701d7d2d7"
+    sha256 cellar: :any,                 arm64_sonoma:  "7a54a894f65fd9f400a293e1399e62cfe09e943a43476122a2a979eee5f2f03d"
+    sha256 cellar: :any,                 sonoma:        "21185a693e581427dd7ee2780e80c4a662cd5323ad037497a03eac45dea183c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5bff9e06ed11c667af9ea334bdadbcc8f9b5ed34909f551d76c287f0d075afc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45636e31464db44a6ea990f79c095797f2dc7bbaac44caa8a670e3b1d1d7782e"
   end
 
   depends_on "certifi" => :no_linkage
@@ -48,8 +49,8 @@ class Xml2rfc < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
+    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
   end
 
   resource "intervaltree" do
@@ -63,8 +64,8 @@ class Xml2rfc < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
-    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
+    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
   end
 
   resource "markupsafe" do
@@ -88,8 +89,8 @@ class Xml2rfc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
-    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
+    url "https://files.pythonhosted.org/packages/24/36/7180e7f077c38108945dbbdf60fe04db681c3feb6e96419f8c6dc8723741/requests-2.34.1.tar.gz"
+    sha256 "0fc5669f2b69704449fe1552360bd2a73a54512dfd03e65529157f1513322beb"
   end
 
   resource "sortedcontainers" do
@@ -98,13 +99,13 @@ class Xml2rfc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
-    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
+    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
+    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
   end
 
   def install

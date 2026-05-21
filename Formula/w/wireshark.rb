@@ -1,23 +1,11 @@
 class Wireshark < Formula
   desc "Network analyzer and capture tool - without graphical user interface"
   homepage "https://www.wireshark.org"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.6.6.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.6.tar.xz"
+  sha256 "27e7ff780cd68a7466082be82ca26c06a002e74a71646ef3a6e4683e444c1a86"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
-
-  stable do
-    url "https://www.wireshark.org/download/src/all-versions/wireshark-4.6.4.tar.xz"
-    mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.4.tar.xz"
-    sha256 "fbeab3d85c6c8a5763c8d9b7fe20b5c69ca9f9e7f2b824bedc73135bdca332e2"
-
-    # Apply Fedora's backport of Lua 5.5 support. Includes following commits:
-    # https://gitlab.com/wireshark/wireshark/-/commit/ec16791d8d68f9045400a0610a5a10b1ea544dfd
-    # https://gitlab.com/wireshark/wireshark/-/commit/1bf12a13e71a6ec1a79cfc73767d35e815b839dd
-    patch do
-      url "https://src.fedoraproject.org/rpms/wireshark/raw/aa822250ea9ebe0b4199522aba92b3c931488a0b/f/wireshark-0010-find-lua-5.5.patch"
-      sha256 "48d682f99981bad6fa26cae9f4b1d96246b51d701136ba9d89d82d5ddd91bbdc"
-    end
-  end
 
   # Upstream indicates stable releases with an even-numbered minor (see:
   # https://wiki.wireshark.org/Development/ReleaseNumbers).
@@ -27,13 +15,12 @@ class Wireshark < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "fb70cc4a30876469e96717a747f113ea408fe6e3af51584735055646d226fd13"
-    sha256                               arm64_sequoia: "6e18b24d8a0333bf7cfd1c92f602ff0d6019580451d1bc7858c8b106f8599550"
-    sha256                               arm64_sonoma:  "85ee2997391e87141421c168fa4497388c9889eb8be390cd4a3294a3065a4a96"
-    sha256                               sonoma:        "27ac99b2d325d07a4f4324dc50ecb59de4bf3f07423cc76b91f91baa151c7bc6"
-    sha256                               arm64_linux:   "ba445c07c071e8f8661506084b2a92df131e29b1a8cb877d69b2f8670714ceb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b488d1d3c7496b88afaef35ba42f43deceae3dbb8a3dee416691fcddd56c6ee"
+    sha256                               arm64_tahoe:   "16a49732b7f7ad5d7cef84850e0bcbbd66b9d3585d5f480ee79f38f973ec7019"
+    sha256                               arm64_sequoia: "1eae1f40bd16867c28f95b18298b9d672faa84edb55989074051e0d49d1f718d"
+    sha256                               arm64_sonoma:  "cc27241ed03a3f2c6c8f0259e51f6b661d53d1d8bdad3ef721e8bff4123f7ba8"
+    sha256                               sonoma:        "f92c00882a44a65f7012dc905d8f060f05f6b3e371b4602aad4ba2e1b36f79ec"
+    sha256                               arm64_linux:   "4bf37e2719d88b937eb350715c7a4d1929996dfefc016cfc4c23b7a01b121b55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4c7aab67f538a5b2d8969cc3f7f5314690eb9739feedf4437f536ddaf927b5b"
   end
 
   depends_on "cmake" => :build

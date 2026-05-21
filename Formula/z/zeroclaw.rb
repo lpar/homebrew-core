@@ -1,18 +1,18 @@
 class Zeroclaw < Formula
   desc "Rust-first autonomous agent runtime"
   homepage "https://github.com/zeroclaw-labs/zeroclaw"
-  url "https://github.com/zeroclaw-labs/zeroclaw/archive/refs/tags/v0.6.9.tar.gz"
-  sha256 "08e3d503f6e6903ac2c52f46424ae03b279c17875a7f5dc0a06093890bd7fe7b"
+  url "https://github.com/zeroclaw-labs/zeroclaw/archive/refs/tags/v0.7.4.tar.gz"
+  sha256 "1db6cd51af21e10128bb0804f945ae343ba5e03ee7458d28bfc40be2089cff54"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/zeroclaw-labs/zeroclaw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d11486eb0bbd37d6418262c4208b4c4201e4d70b01538982dc62a6f5ab4fa274"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8ac1c6ece3724351c81ac36dca86b425328eb55bd57290c171c10845c199b760"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58864fe93a4762a2a302b2880204d7a05d47bab1a21a59964b1517f086e9da6e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "48c9e83301b4c621ea03ea5270a6b740affeb7f9e1f2383b7f13acdb32d0d9d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "370e5d1f51f62fca84de4f52d344b6b2e00c96f9ccbc970fd28c714baa1c57e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6805e761c21d9e57cde89818ba43e80e9ee9bcf666b79e6c81fab9a0753ce7cf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce797b78edbaf3c9d3add91063acce0423ce95398dea8757337f4b4f6224ad83"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9112953ad241a6afaa8daab3d595d088c5504ead370ca430b002e743d9ac0f42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4ec6c1a9592c64bfb8695c3388d50efb8f9debb2ae9918a118c6768ad875460"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2507f62ea184159b8c67f2ecbd59a9e652c6aafa9054b4b8202b36bb0408f469"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bee709b05b8280924211b3bcebaad0959a9161da72d2b7f8baa036c3362b1a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57427e37a00fc96e70845efc835e1012a96f6602f737988439967e6820304bfe"
   end
 
   depends_on "rust" => :build

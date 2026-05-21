@@ -1,17 +1,22 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "525506d347ef668258c94b5b873ae88f090cb0c70b89e9f77d684fa10af4b194"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.1.9.tar.gz"
+  sha256 "88a37a72820fa7009df212c6c3d59a1751a123dd5f8e6a69ea8bbc5359de8b6c"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d43c5bbfcb158d56b4d07598b02a3ddccda1fb460a1251a1d51c5300337d4bb2"
-    sha256 cellar: :any,                 arm64_sequoia: "45d3a4ffa8f735b27aed98d4969a8a0ac8e86f9a7882c723d6b525b0c1d39ee8"
-    sha256 cellar: :any,                 arm64_sonoma:  "4755623b39eb551ad7e0869e5fc020ef81474ced018c44f5a3743d5cbf31a2c2"
-    sha256 cellar: :any,                 sonoma:        "7e6b01d5a62c7bb9c3ce5579c9d166faad9f1c11c347e81928a09b0c99a11f5c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a645acafdded692bf712db8853d79602908f4309ba65bd6bdd4202f51ad603f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42a07cfe9c32ff60a2237976698f94041d816afe2f8e4d17af5d79c03f9cb030"
+    sha256 cellar: :any,                 arm64_tahoe:   "d5568117bd748052dacfb5f22a63d64cf1c920c746d73ad6ebaf585c1d300c1a"
+    sha256 cellar: :any,                 arm64_sequoia: "096e7f7c58f92f7f178c30bffd0dca45ed4ceaaa4757c508365446e305f82cf2"
+    sha256 cellar: :any,                 arm64_sonoma:  "bb92977a2b02727c27cb574852cb6a1e9dbf8adcd2f8a0afef28a1f34c900dcd"
+    sha256 cellar: :any,                 sonoma:        "6f70f5c4dc43db7d4a6b5d9ce3eee62ca68a9a2a98812fe38e6e921af020513b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "beea2743074d51580a0ac4b61cfa21947114fce3a3227ddfeb5cd9be35853366"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "746cd3a245531148278d558fbda27393c51d908a6debef50b5ae8062bfb93223"
   end
 
   depends_on "valkey" => :test
@@ -39,6 +44,7 @@ class Garnet < Formula
     end
 
     dotnet = Formula["dotnet"]
+    # .NET 10 flags IL3000 here even though Garnet falls back to AppContext.BaseDirectory.
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
@@ -46,6 +52,7 @@ class Garnet < Formula
       --no-self-contained
       --use-current-runtime
       -p:PublishSingleFile=true
+      -p:WarningsNotAsErrors=IL3000
       -p:EnableSourceLink=false
       -p:EnableSourceControlManagerQueries=false
     ]

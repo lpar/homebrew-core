@@ -2,18 +2,18 @@ class WakatimeCli < Formula
   desc "Command-line interface to the WakaTime api"
   homepage "https://wakatime.com/"
   url "https://github.com/wakatime/wakatime-cli.git",
-      tag:      "v2.3.0",
-      revision: "eaf4827871a685bd1e0d0ce5db3e2604755f1c3c"
+      tag:      "v2.14.5",
+      revision: "65bfbdc29d67299d6b4796325871c240531d84d8"
   license "BSD-3-Clause"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "32f9790af0b23bd2d9cb356fdbf4f3994392fd2c107e2f661964565a0f327017"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32f9790af0b23bd2d9cb356fdbf4f3994392fd2c107e2f661964565a0f327017"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32f9790af0b23bd2d9cb356fdbf4f3994392fd2c107e2f661964565a0f327017"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3979cedac891a06375f48a97904dc3ff1183c66ff97d28f6f8ab70fd24c53822"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b23bdade14bf18564a0ea3a0aa568cc77bf8ce5dc23d676acf1db330710e507"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd2eca6c16976c9bd7a902ff575a70213e594a3fc32e709d693d36b37e05ab70"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cc5a6c7998d6462995bdb4c45c1e90f3b3ddabdee02710174ec9095770c066e9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc5a6c7998d6462995bdb4c45c1e90f3b3ddabdee02710174ec9095770c066e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc5a6c7998d6462995bdb4c45c1e90f3b3ddabdee02710174ec9095770c066e9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86554c50be80799d0b0fa13cfce62280c5aa86d043c92e41381559ffde170bbb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c613e5addbe7fa0835b2ca15186e36dc36d8c62ceab204749aa2982396e69400"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73528e8dee2a35e7b1dfd1822ed242bbfe83bb4f4bbef383e469f32c8657e37d"
   end
 
   depends_on "go" => :build
@@ -29,6 +29,7 @@ class WakatimeCli < Formula
       -X github.com/wakatime/wakatime-cli/pkg/version.Version=v#{version}
     ].join(" ")
     system "go", "build", *std_go_args(ldflags:)
+    generate_completions_from_executable(bin/"wakatime-cli", shell_parameter_format: :cobra)
   end
 
   test do

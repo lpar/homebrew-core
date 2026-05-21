@@ -3,17 +3,17 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/9e/0f/9762830def619c9aa2cb7cf2ab59ade60bfd8a83325767ad3edca597d29f/copier-9.14.3.tar.gz"
-  sha256 "8737a14af1540ad19d6a6d59a05ff07bb0a81b286cca9ee79163572352df6e5e"
+  url "https://files.pythonhosted.org/packages/98/77/1b96b1b174e576155a8ce7361ecbf5e3cf8c679cec49acf6f4adf3f68f39/copier-9.15.1.tar.gz"
+  sha256 "0fceec8c27d80a0573809837472f4aaee48b90930f473f9674847a02a2ad7da5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e7b1c0de88dd217d738c2360c13f92765b09af80b4ac668b82ff66f657ed49cc"
-    sha256 cellar: :any,                 arm64_sequoia: "5340c47965b66be8b588e7f848a13fa9bb881c679f3b8cd31253ffb94b20ddec"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4f1c3dcd6761b323638aa062339027dd7610630915b84e02847ba1719d7ef56"
-    sha256 cellar: :any,                 sonoma:        "f11e7afdeec8d3df6bed0de737368b1a61ec324808e129a41414911491e5da8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad32bc02929a7984648dcaf259e4b9ed366b971e846e1a478850b0f9fa2ff492"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ffeb0978dc5b7210e24f28085d7e69a129550afc132e78b50b42fae45e66c36"
+    sha256 cellar: :any,                 arm64_tahoe:   "ffb05ab6dd28616f15cdd66a457fe18954d26120c1197c1a6ba4110aff77a536"
+    sha256 cellar: :any,                 arm64_sequoia: "ab7873c31f97e36a653e97c55d066568cca17db764247ad102311e5ff9862ef6"
+    sha256 cellar: :any,                 arm64_sonoma:  "110b25ea7ac022151d9672c680a134e4185eb787023b0aaa59dba5af222db165"
+    sha256 cellar: :any,                 sonoma:        "ed7131227d634823a9ebefc00836aba6d17729284b5a11e0cde976d5f9ddad20"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28b8c7e319c2f35581b757497b29326a7939c1b517e080f5a81ccafa9136e511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bc93ae1a655a3372c6b749ace99bee3c817b28f1939993f5e1924dcd7261958"
   end
 
   depends_on "libyaml"
@@ -53,13 +53,13 @@ class Copier < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/fa/36/e27608899f9b8d4dff0617b2d9ab17ca5608956ca44461ac14ac48b44015/pathspec-1.0.4.tar.gz"
-    sha256 "0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645"
+    url "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz"
+    sha256 "17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a"
   end
 
   resource "platformdirs" do
@@ -93,8 +93,8 @@ class Copier < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
-    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
+    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
+    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
   end
 
   def install

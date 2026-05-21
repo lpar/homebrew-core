@@ -1,8 +1,8 @@
 class Clarinet < Formula
   desc "Command-line tool and runtime for the Clarity smart contract language"
   homepage "https://stackslabs.com/"
-  url "https://github.com/stx-labs/clarinet/archive/refs/tags/v3.16.0.tar.gz"
-  sha256 "6498bb187ff460cc148c1c84bde358ad7dd39345e179a1a9d3b802d7242e07e6"
+  url "https://github.com/stx-labs/clarinet/archive/refs/tags/v3.18.1.tar.gz"
+  sha256 "21dd97c32c96c9884722a1025739b24b68526bbcf138c3bd6cf7cf46b2b2ff4c"
   license "GPL-3.0-only"
   version_scheme 1
   head "https://github.com/stx-labs/clarinet.git", branch: "main"
@@ -13,12 +13,12 @@ class Clarinet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "310a875f71476dced834607b28cb194d82942a371c024b8ffba33d3c622eb95b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d4e1c9a49cbe792334a358eaf35e74a3dd1f5c68a052300124d76abdd6ec79c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b45ee841a1a07cc25551d029c8c8553beb821ac41d0679c3185001c01fed9407"
-    sha256 cellar: :any_skip_relocation, sonoma:        "de904556f2b687e3296f31b3b6fee58db48680b6f4915e4f453864946be2e14b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "057cc88b142123a1b3229ae4c3671cd2d1051f3f5d04955d97ad32ebaf89d0bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae9e05851b938bce71fe629175f576001e253d33de010c66a1b101878c484262"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5b2d3b6d64a45da5819b627c605a49ad6bdfc052d71a817e9c74c063cbf87a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8190671d3b77995b0c5f7612b5dc780a3a8471b5e7114575711d88582fce7680"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dae7c052c5a0199be9a17404a103cb5c4257461947af463ab3536ee5832f3676"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0056cfec662a1addf76b9db1da47e720605132f267a407629bbe65568908f3bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "77c9c153671fb7bcbb05bd98a75fad0f6f0046c018e816af35e617c78211c707"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fcce263a272d8484bc675aff46e668c488280a73de4e67af25808f794e5d757"
   end
 
   depends_on "rust" => :build

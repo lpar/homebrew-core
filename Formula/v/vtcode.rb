@@ -1,8 +1,8 @@
 class Vtcode < Formula
   desc "CLI Semantic Coding Agent"
   homepage "https://github.com/vinhnx/vtcode"
-  url "https://static.crates.io/crates/vtcode/vtcode-0.98.0.crate"
-  sha256 "90dc7481b1d339678418e5c5f00303e524db3abcfc6d21a67714a577eafad48e"
+  url "https://static.crates.io/crates/vtcode/vtcode-0.106.0.crate"
+  sha256 "cbe34beb59ddc107c23b423a7ad698904747392448aa2a5eac3150a226b66363"
   license "MIT"
   head "https://github.com/vinhnx/vtcode.git", branch: "main"
 
@@ -11,12 +11,12 @@ class Vtcode < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d9a2839dfec162acfe98bb7f5165762b62f6fc8c4f9bc8f146d4abcfcc88605"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ded9fe482006486a170bc185eaaf2cd836e79b7568b143e1556ed11c636cecf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1502ed7a20cb53438ab18a80e500ee2f4ed205b1837fb5d086b0f60b7aa18526"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fa60f5ccb3544436be724ea0ec6da8ab9b97e392274abeff0732f5826be65ba5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "883b3d3ccc1fc0b478206ecf05adf9accef6b2889694686a52ff76829f19b834"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "407280995cf3b219e32fe15d97bbafef78892816e1e17607e499282f8b314a2e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91ea640570e6f41d57fd3976b1e2ef980ff513f40a6c1afc12be311db9a395b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2e2b87de0faa6a8ebcafc8b2ee1756c9df28f6490ea55d4cc3e2d0260d911d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab045ab2b229e66b601277f8a89374845d8e3dcc405642020410566740737da4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bf56c8cb6bbb086e6d41583e9db40e2635631163d02a65dd1e3678da05208388"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d11d04a64785a498c6ac59bba9d0700632388b7402291da134292101ac81495"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49e8823f0161908e476e1c9b22c2469a1e0b90a6de1e5a53fdd1bff2a2cdad66"
   end
 
   depends_on "pkgconf" => :build
@@ -24,11 +24,11 @@ class Vtcode < Formula
   depends_on "ripgrep"
 
   on_linux do
-    depends_on "openssl@3"
-    depends_on "zlib-ng-compat"
+    depends_on "openssl@4" => :build
   end
 
   def install
+    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix if OS.linux?
     system "cargo", "install", *std_cargo_args
   end
 

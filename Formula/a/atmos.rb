@@ -1,8 +1,8 @@
 class Atmos < Formula
   desc "Universal Tool for DevOps and Cloud Automation"
   homepage "https://github.com/cloudposse/atmos"
-  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.215.0.tar.gz"
-  sha256 "7ea881bac6464c6d99458ccd66ac4d46d30c113713f7fd7f77d2debbf681b9c9"
+  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.218.0.tar.gz"
+  sha256 "49eb3abcdde5c6fdd557a21ad4d7f3bdc2db942ac6dbb66ed55112d1fa4a4a9f"
   license "Apache-2.0"
   head "https://github.com/cloudposse/atmos.git", branch: "main"
 
@@ -14,12 +14,12 @@ class Atmos < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f4033719b69910f79e81d05fa4f755fdb824be687007e0e87e9b6ea00e7ef2c1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67ab87066635e347577aac2375baef2373086a5cab9456831153a8379d38213d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3632e4fad638cf9956994495ac6b60043adb2b55eb09f171da12c2dbd2df7241"
-    sha256 cellar: :any_skip_relocation, sonoma:        "549714f2b4e17eaf320a43340989a310d6d46852dab1bb0ad9b94940e1868ad2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a5a185398bac95cf44774c5768f609811e6f170a844b112febca16ef8ffc8d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5f22ab9f0bfd2c7af4b4b642775768db06f24a03812feb2c71a0b19041dd4bc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9d234ef99f7e2fcd6f4d72578ddbf88a69efb55262dc03a744ffb8d44e4e395"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0502faaa7a5ac6f13a55133ea8c2ccc297fde3aa667ac194fcfb783908c2db9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "555110a828f1b93bd10e3bf639ad23ad8181e163601116d812735f4c0cdb89bc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "098c9e8ca2f28785bf7355c68ecc02da3b0e5d067ab404056c80f47eb5083f87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b802835f9ab82de2fbdfffad8f63795530e0442483ae6144d76cf349f667179"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1688ea38f9fd198f729aee557d0d3408d7fe0bc246801f696669f88632a07b0e"
   end
 
   depends_on "go" => :build

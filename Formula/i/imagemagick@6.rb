@@ -1,26 +1,30 @@
 class ImagemagickAT6 < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://legacy.imagemagick.org/"
-  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.13-44.tar.xz"
-  sha256 "c0bd44e4377bd33245634a0cf6c30eb6c02f9960d09c3256833ad29f35e170dd"
+  url "https://github.com/ImageMagick/ImageMagick6/releases/download/6.9.13-48/ImageMagick-6.9.13-48.7z"
+  sha256 "a396b3979d7234ee96c290da2a869653430fb93ce801987e5791d836aaa3c6f4"
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git", branch: "main"
 
   livecheck do
-    url "https://imagemagick.org/archive/"
-    regex(/href=.*?ImageMagick[._-]v?(6(?:[.-]\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+-\d+)$/i)
+    strategy :github_releases
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b9da7a6a522b9d5930f82b1bb61ac8aca77f81a169f1c3512e53d9b7f4d96696"
-    sha256 arm64_sequoia: "450dd015e2d8096bb058722291493f10e236ad769fdf7b92a34d2a914a28c73a"
-    sha256 arm64_sonoma:  "93919afa53d196b41d668c960b96f9c63b15685ff0f53a67cc29563a0de370db"
-    sha256 sonoma:        "2bbb8920d63acaf2856dcfcfcfaa2bdf7490c23d5d0b2460c70a123d63e69d4b"
-    sha256 arm64_linux:   "f33c02cb37116f365bcc25eb044581f657ae02c836517463849e2aed2e792160"
-    sha256 x86_64_linux:  "20ac0d19d26748d0d0c8ef804b0b5bcdf15fb51c77c392de53695057bd0a759f"
+    sha256 arm64_tahoe:   "f329cf4128fab31c9120a15d0204578f72eb82604da1d069fce6104b6f166977"
+    sha256 arm64_sequoia: "055e3668d29c334bebdcda85afba130b40dc2b92b9f2b104b78a08480aebf54e"
+    sha256 arm64_sonoma:  "aaec12e1ded16948521b0a390409cebd95df77585c7e78d821f5c85b57066ae4"
+    sha256 sonoma:        "2d0e2c56de7f5c50606d34c4105324b29aabe65dd8c5257b328d54a29a4895cf"
+    sha256 arm64_linux:   "a0da2fad3f60b07302f60fe6b540358ab1cf6216a36f990cce49d7e0e7099a67"
+    sha256 x86_64_linux:  "9fa0d8315505c2f0c001cdeab213d62be36937511f9eb528e402ca7279437556"
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2026-05-01", because: "is end of life and only receives security updates"
+  disable! date: "2029-04-01", because: :repo_archived, replacement_formula: "imagemagick"
 
   depends_on "pkgconf" => :build
 

@@ -1,18 +1,18 @@
 class HarborCli < Formula
   desc "CLI for Harbor container registry"
   homepage "https://github.com/goharbor/harbor-cli"
-  url "https://github.com/goharbor/harbor-cli/archive/refs/tags/v0.0.18.tar.gz"
-  sha256 "b83cf763b0b54306eedd39d9adb99fa5a2d9badcb872a2aa64ca8a552433bb48"
+  url "https://github.com/goharbor/harbor-cli/archive/refs/tags/v0.0.20.tar.gz"
+  sha256 "3140b3d9a30feef01ecd297856d859bbd544d25445c9eaf8aad05198c91fd462"
   license "Apache-2.0"
   head "https://github.com/goharbor/harbor-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4776a705b217a1ad5d8fda3cdb79bb02356ce5260f30d7a9699856089e2b3b36"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4776a705b217a1ad5d8fda3cdb79bb02356ce5260f30d7a9699856089e2b3b36"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4776a705b217a1ad5d8fda3cdb79bb02356ce5260f30d7a9699856089e2b3b36"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0c69da44fd31a11680bef821fdd6bc62503797df192464377ab24817c832d3f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e43dd2908c74bf7dcbb36f8137fb550e5bf2aa31dd63ac416c03afb9b7f403f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f3168c19e5862bd7b3dd6e11e7d978ee50b411ac0bf8aeb6b20f965d3dff772"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e5993b3a851d8a079507c97cb90ee337e181d8dde7906026c3bf7c0329c8d60"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4289d4a517fa7f997124bcd08780fbcd3ded364f3e21dc2529fe6bdee5f0b3b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8498ff592f8a51e02d5ae841e25886f79ca053dacda48ccc1b6be63c6074fea3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d15240ad53735b873a03795c5a56d0efb90d84ccd8296aa0c7dae7bb9619b04f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c662ea4c4ff79379c814dc23a7394e0a14fe61d84106078aa290aa19798383bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b53636d19c482643083e8ad736b04ed519a11af4972b5689217fc813f52f50c2"
   end
 
   depends_on "go" => :build

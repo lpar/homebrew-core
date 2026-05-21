@@ -1,17 +1,17 @@
 class Wuppiefuzz < Formula
   desc "Coverage-guided REST API fuzzer developed on top of LibAFL"
   homepage "https://github.com/TNO-S3/WuppieFuzz"
-  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.4.3/source.tar.gz"
-  sha256 "283450c7b4d9723a0c3e67e537cddb1d4d6d77e3d93e5630dafc8f071ce79cfd"
+  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.5.1/source.tar.gz"
+  sha256 "36fc2fade7e3a3901540c751f0e29c456ecb434dd171960e32a2d338731c09c9"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b7837adad1781bd07b850695d5ce6ddefc967fcec2d2b8ddbd993ac293e81360"
-    sha256 cellar: :any,                 arm64_sequoia: "9ddb9a4fdf7bf8cf8faa96fa507ddd847b71d828da71f5b5667e1feb20a15f8b"
-    sha256 cellar: :any,                 arm64_sonoma:  "823b10b0b893600991d1e90e66fcb8c6116a54ab824114c1057bb5cbec4f2ee8"
-    sha256 cellar: :any,                 sonoma:        "17992da78d913a54fe9eaac7d84a4482e62bcff0b74e7705cad15e3a241aa587"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd78f339f6b24585f6eeb80cad64ed0d3181d710448bc4c5a2f7af6c5dc76b33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42fbe354c80c59a2e5356107cecb887a6ed495db5dc6868032daa75ef4a1dfc5"
+    sha256 cellar: :any,                 arm64_tahoe:   "40403b648a9649ffa00439f8ff70cb50ac8b291a8ef133d96522523d74da0766"
+    sha256 cellar: :any,                 arm64_sequoia: "da82823caa0b43495e7d62a5f2f4c504873d51beaaa4cdfcdd88a8873e9ac660"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd45177938db572afc15dd80364625f317f598804754d1407d530235ac8d9c55"
+    sha256 cellar: :any,                 sonoma:        "e020bd8b8d9a207cb8c6b82e8367fcfb036ca1f55151797528fda27fab7c0422"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e3b32dabf15366d6b2d3115e3cbdc1163373eeab323a0e0d7c1ca8b8fcd8948"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8710a9684a8847af281a7cd362a1df61c182962a5860ee96c646a96bf4416f76"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +23,7 @@ class Wuppiefuzz < Formula
   uses_from_macos "sqlite"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4" => :build
   end
 
   def install

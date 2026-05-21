@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.3/llvm-project-22.1.3.src.tar.xz"
-  sha256 "2488c33a959eafba1c44f253e5bbe7ac958eb53fa626298a3a5f4b87373767cd"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.5/llvm-project-22.1.5.src.tar.xz"
+  sha256 "7972b87b705a003ce70ab55f9f0fb495d156887cba0eb296d284731139118e2c"
   license "MIT"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Libomp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e67f00639378f6ecae0ec2fdfd39697aaef4303d729c18c079d969ffb8aba768"
-    sha256 cellar: :any,                 arm64_sequoia: "803dc6ae88352bdc148867e5e7f918ca26460147b4fd6268b4911acd4252ce59"
-    sha256 cellar: :any,                 arm64_sonoma:  "7c18764fb057918a58a738c0503c345c8dc93afdf5a394b8c2b08847bd579db8"
-    sha256 cellar: :any,                 sonoma:        "9747d34a7fd1c2213b05b54f69cdaff8f5cb259543b8804135ce32caebefcff0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5953e87df99297c07aab022c7f5c1dae1d483231ece87b1724a66922b41affbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc364ae857aa61ea08aa30869ba2458db163f46c4425f48f7ffb807392b88ad1"
+    sha256 cellar: :any,                 arm64_tahoe:   "a1e8896a92b1497cb8d07b07c5314cdc21930be88de4fc5346628f6cb08dd701"
+    sha256 cellar: :any,                 arm64_sequoia: "707b308d20ffedde67dd2af50ef266ad4dba4d077e9485efcd20691ab9c96b2e"
+    sha256 cellar: :any,                 arm64_sonoma:  "4e0ebbf910154568d74377bd360d8ac7fb863e9116c33a8610b12e0d5d0c78e2"
+    sha256 cellar: :any,                 sonoma:        "d36ae2533bfdfa029b1f78ffa5a70d8005674bf26dd92f9307a62e2289dac029"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d0c1964560314d1cb82217cf6c43f2b1ed567f02bd6ff0ecbca1b29480d4aaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5d05a383a6743e395f2645ed20c772940c4f904b29117e12bd3dd7735cc3b06"
   end
 
   # Ref: https://github.com/Homebrew/homebrew-core/issues/112107

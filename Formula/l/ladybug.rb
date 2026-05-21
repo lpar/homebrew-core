@@ -1,17 +1,18 @@
 class Ladybug < Formula
   desc "Embedded graph database built for query speed and scalability"
   homepage "https://ladybugdb.com/"
-  url "https://github.com/LadybugDB/ladybug/archive/refs/tags/v0.15.3.tar.gz"
-  sha256 "5549b5a50a84f61cb18c35a964ee8c9b26c56952905f9e108ad58fe33fb9a5c6"
+  url "https://github.com/LadybugDB/ladybug/archive/refs/tags/v0.16.1.tar.gz"
+  sha256 "c22417b46b895df7c25f8314cab27bc1afbf1a43b06463a023c98eac5ffe16c3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f87b1de983a4628da1c4816b421b95ae6a9bc1325630c19089c84d47e297d5f8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c4c0fb4948eff902a22b44b2707021d3c765f92d39ddd9654480de1d84e3f6e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1db58efa79850da4608f923eb0ca0ff84ed5c9617e3e73d9f07bb5aa6a763793"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee943343ef0ae1d768c1b40450eb885f0998130ab255195ec592c1a8a253e407"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5fa4c11881612858bdda650677927ed731c081b3347125312640e4a8c9af2d5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7cc19c09379647d54a1486acb69fbbd15af94db87c3d33f689831f615a4130e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0d4155d639e169913f17d3d1344591948fce00905e8a4398f3d9074a00200da7"
+    sha256 cellar: :any,                 arm64_sequoia: "645ba24811550a2e0ebe71ee97e4255beb275d912cdaee3008ffb1d3b492ff43"
+    sha256 cellar: :any,                 arm64_sonoma:  "ec2e1557fae4914afc541d1bfafee9b5169fba4eb0d8823d4beb4e7e33ff3919"
+    sha256 cellar: :any,                 sonoma:        "86dbdd77ed809cee24b42b309c7ed5ac00ce841cb45beb27883245c2f4309e82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f878af0aa3ca57fc97e5ade8f58d5ee46218918fbd06c7cade5eff84ef61c372"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a709d48e720801aa916a482a7c14e70e950a3a97837e6fc8d6f8ba0f77b4f36"
   end
 
   depends_on "cmake" => :build
@@ -33,11 +34,15 @@ class Ladybug < Formula
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
-    bin.install "build/tools/shell/lbug"
+    system "cmake", "--install", "build"
+
+    # Remove unwanted headers and libraries for `cppjieba`
+    rm_r Dir["{#{include},#{share}}/cppjieba/*"]
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/lbug --version")
+    # Upstream versioning up to patch version, so skip for 4th number in version
+    assert_match version.major_minor_patch.to_s, shell_output("#{bin}/lbug --version")
 
     # Test basic query functionality
     output = pipe_output("#{bin}/lbug -m csv -s", "UNWIND [1, 2, 3, 4, 5] as i return i;")

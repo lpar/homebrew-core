@@ -1,24 +1,27 @@
 class Precice < Formula
   desc "Coupling library for partitioned multi-physics simulations"
   homepage "https://precice.org/"
-  url "https://github.com/precice/precice/archive/refs/tags/v3.4.0.tar.gz"
-  sha256 "1155178da7271c404947d1ff64b6e5028a82575fd532baa26bd6418de5ef2623"
+  url "https://github.com/precice/precice/archive/refs/tags/v3.4.1.tar.gz"
+  sha256 "ef4713c938a1b2000d0b071175e1b45f9ec55c7aec4bbe7b65c3992edcc74ac7"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/precice/precice.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "82d38eca576ca0bb74bd0c6a2daecbc51582f903b547aa4a5bdf0940a0781007"
-    sha256 cellar: :any,                 arm64_sequoia: "e150a1a4d619eadbf151f88baec82edd919cc37f19b48f5748194b8ea0df895d"
-    sha256 cellar: :any,                 arm64_sonoma:  "a557ca251fe57719034982cd1b96f56e3677d499b30634686c6a48d8f1cdfb9a"
-    sha256 cellar: :any,                 sonoma:        "1806045e4fbf5f3a7f2554bde2392c94cc27042bec3178328eceec4782b2a6a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "41b2728e46aae9e174279f0cd6b7a4a321c421a7cdc3d395ff300e2f1b115aa3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0cc6b6b1cf975427acfe54ce5a7d8a7ec0af870752b970d4b31d831daedca26"
+    sha256 cellar: :any,                 arm64_tahoe:   "841f6e73e7352de0557d5782f3158e0e2f770943e62d5cdfeb12d5b84ad65e20"
+    sha256 cellar: :any,                 arm64_sequoia: "757dc3095d5c4eec539da00e46b18b8bbfee24a0ecaffb4958d008675941bb6c"
+    sha256 cellar: :any,                 arm64_sonoma:  "d5634c836d089b0e2570488dcfb02ee3211fa1c79a27d23a69f47d45c3c3e8fd"
+    sha256 cellar: :any,                 sonoma:        "4cfae1f50c4be5722fe5a2ee98cef3da748b1e422c9e30ba4b3c6f3c91835b64"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75c3638840987563f681eff6f907e7f55f0a42c968c8dd9c57bbde48c01627ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40ceb07952ea39e22be757eb52498f1768c862715228e4fda9fe4bb17e7fd80c"
   end
 
   depends_on "cmake" => :build
 
   depends_on "boost"
-  depends_on "eigen"
+  depends_on "eigen" => :no_linkage
+  depends_on "ginkgo"
+  depends_on "kokkos"
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "petsc"
@@ -26,8 +29,17 @@ class Precice < Formula
 
   uses_from_macos "libxml2"
 
+  on_macos do
+    depends_on "libomp"
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    args = %W[
+      -DPRECICE_FEATURE_GINKGO_MAPPING=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

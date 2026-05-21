@@ -1,25 +1,25 @@
 class PythonAT314 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.14.4/Python-3.14.4.tgz"
-  sha256 "b4c059d5895f030e7df9663894ce3732bfa1b32cd3ab2883980266a45ce3cb3b"
+  url "https://www.python.org/ftp/python/3.14.5/Python-3.14.5.tgz"
+  sha256 "9c22bfe9939a6c5418fc74b289a5f1cc41859ae82ac6b163016b5844bd0a86bc"
   license "Python-2.0"
   compatibility_version 1
 
   livecheck do
-    url "https://www.python.org/ftp/python/"
-    regex(%r{href=.*?v?(3\.14(?:\.\d+)*)/?["' >]}i)
+    url "https://www.python.org/downloads/source/"
+    regex(%r{href=.*?/Python[._-]v?(3\.14(?:\.\d+)*)\.t}i)
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a57709f67ff38ea12b02cad10719afd42de03f8fc0a25fca857786e3c45b52f1"
-    sha256 arm64_sequoia: "a662a7f23fc2eeb0106eab7196080a446cc9a9557db1f863f7f902fd3640dd21"
-    sha256 arm64_sonoma:  "12d5adefd8d0a3f818501d9d33f79f3af2866655e3ef8d1f54955247b7c48298"
-    sha256 tahoe:         "7c11c07a27ba1f4cba5b5799c202e670814d9da719841ec2661f29061653a072"
-    sha256 sequoia:       "7e929fa45eeb65b5740d97f9fdaf7a3def6d30ac3c82069ef5d778b1d55f3fd5"
-    sha256 sonoma:        "24065e90fbd5a9b19f8f17516f0f9fa53aca0849463f8f7cb66b606fd154d6a5"
-    sha256 arm64_linux:   "f40a490b9277e2dca9aae2a1b6524780a57719235ebadf1fe8ec617df5a46057"
-    sha256 x86_64_linux:  "963a5b405bb22f47c659f7258da9d55677474ac1c21916ba9197655186cf4c66"
+    sha256 arm64_tahoe:   "fbdf4ab07fa7cf3acd10aa15f59198f8a156660c7456108ad142bbea02f6404a"
+    sha256 arm64_sequoia: "f35b53b5191334456d8e28bccde0762d3c9f212325d0014a5351eace83ff21fe"
+    sha256 arm64_sonoma:  "7c837e923154cd311ea1ca49e79508f00ef2cc8f554deb111d594c297493e2dc"
+    sha256 tahoe:         "42f56660bdfc64b7b00d3fbd751efd2cfe748d5a27d908997312ba598dc5d46a"
+    sha256 sequoia:       "598e9450029cca8630774cd67cfd598e94d7d2dea01224da8250fbc5afc4f346"
+    sha256 sonoma:        "def3965c68e321b5d5cd8754bbdfb5ffa8647d722fe1d42676b99611c51c8638"
+    sha256 arm64_linux:   "fb78ff7e4f774ce10db10273ec5f3f68ab0d6c6307e22701329cf9ad101734ed"
+    sha256 x86_64_linux:  "414894dbed9e3caee6c6819a8174161b370d9199f06a8b8b10d9cc4fd3980940"
   end
 
   depends_on "pkgconf" => :build
@@ -37,7 +37,6 @@ class PythonAT314 < Formula
   uses_from_macos "unzip"
 
   on_linux do
-    depends_on "berkeley-db@5"
     depends_on "zlib-ng-compat"
   end
 
@@ -67,18 +66,18 @@ class PythonAT314 < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/48/83/0d7d4e9efe3344b8e2fe25d93be44f64b65364d3c8d7bc6dc90198d5422e/pip-26.0.1.tar.gz"
-    sha256 "c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8"
+    url "https://files.pythonhosted.org/packages/b6/48/cb9b7a682f6fe01a4221e1728941dd4ac3cd9090a17db3779d6ff490b602/pip-26.1.1.tar.gz"
+    sha256 "d36762751d156a4ee895de8af39aa0abeeeb577f93a2eca6ab62467bbf0f8a78"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/89/24/a2eb353a6edac9a0303977c4cb048134959dd2a51b48a269dfc9dde00c8a/wheel-0.46.3.tar.gz"
-    sha256 "e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803"
+    url "https://files.pythonhosted.org/packages/39/62/75f18a0f03b4219c456652c7780e4d749b929eb605c098ce3a5b6b6bc081/wheel-0.47.0.tar.gz"
+    sha256 "cc72bd1009ba0cf63922e28f94d9d83b920aa2bb28f798a31d0691b02fa3c9b3"
   end
 
   # Modify default sysconfig to match the brew install layout.
@@ -163,7 +162,7 @@ class PythonAT314 < Formula
       args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     else
       args << "--enable-shared"
-      args << "--with-dbmliborder=bdb"
+      args << "--with-dbmliborder="
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -492,7 +491,8 @@ class PythonAT314 < Formula
     assert_match "ModuleNotFoundError: No module named '_gdbm'",
                  shell_output("#{python3} -Sc 'import dbm.gnu' 2>&1", 1)
 
-    # Verify that the selected DBM interface works
+    # Verify that the selected DBM interface works on macOS.
+    # Linux requires installing python-gdbm formula
     (testpath/"dbm_test.py").write <<~PYTHON
       import dbm
 
@@ -503,7 +503,7 @@ class PythonAT314 < Formula
           assert b"foo \\xbd" in db
           assert db[b"foo \\xbd"] == b"bar \\xbd"
     PYTHON
-    system python3, "dbm_test.py"
+    system python3, "dbm_test.py" if OS.mac?
 
     system bin/"pip#{version.major_minor}", "list", "--format=columns"
 

@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/docs/reference/kubectl/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.35.3",
-      revision: "6c1cd99aef09161ddb07b8ade6c9564e9b9bfe27"
+      tag:      "v1.36.1",
+      revision: "756939600b9a7180fc2df6550a4585b638875e67"
   license "Apache-2.0"
   head "https://github.com/kubernetes/kubernetes.git", branch: "master"
 
@@ -13,17 +13,15 @@ class KubernetesCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06705b9fa38561f0591f4332ca1233c591962cc0a0ab04eac5e2f9910ae86182"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d2dcd44bd15b303dc5d534130d387d4954b979f97a76ae4b3bc769635fcb0de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "531215a82b691fcf8e3d8f18f724518d4f369bb6d5ab45dcf141fd48f999c019"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5522d91a3a346e938053a9bd88981396202061f1a41227b0db296a923db89a1d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e29c1d72d34f1a44ed6bafd005fe10f2d62b221a13e6eb0d6adb96f6de7e3bdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16497278e5bcd326d2d9e7982969a1e807d4f08b0f24b98f751f825070fe8b26"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c103005968193b99726e3e589e378c5e1e23cd54c90600483ff1b22516928d15"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc632cd49c9edc5567f985ddbdab3810759135b82c137bad6696203bbaf3afee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e0e41acc05133912f697f125a096c4c6a4521b13b48fd810ef109d0897e51f8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d8d8908623d0836480e25ff28ed5ae6dd6a44ccb72e73c25c0831dbe802e2154"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf7f6ddbf342cff3c0a39e71fe678f55950fb4e62bbda078d74047eb36dd1c91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f733aae3fc8ae437f887ff0290a734d27f9b4593b21a882f347253f7d439ce42"
   end
 
   depends_on "go" => :build
-
-  uses_from_macos "rsync" => :build
 
   on_macos do
     depends_on "bash" => :build

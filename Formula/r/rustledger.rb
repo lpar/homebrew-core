@@ -1,18 +1,18 @@
 class Rustledger < Formula
   desc "Fast, pure Rust implementation of Beancount double-entry accounting"
   homepage "https://rustledger.github.io"
-  url "https://github.com/rustledger/rustledger/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "324d147ce3fcfa6abb832fdae03114a51ea6786d2ee9fdb08a13c4165ecc075a"
+  url "https://github.com/rustledger/rustledger/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "b9e1289a32aa4f21064a54f8d2fbbc2011b93dc32e5dda5c91f5ffbdf1e00e7b"
   license "GPL-3.0-only"
   head "https://github.com/rustledger/rustledger.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "379b212d2eea2c6cf1d3e60db59880319cf23bd7b7f611606fb2234867a017f6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ec14b5a2976d8e3cf7e7f7e856d8a6f7ba682b36cbc727f0d8b1ef44b194ab2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ba9f6b26d84e9950dde66f0c17ac26a02b541c78517354dfda9fa3ddb6c12ff"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5b74b86c2ca6b72d3aa7a15aed64177e33b7b1dba5ad50e3868eb8da469f39e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8786ccc14b44375d431ebd18a115cef60c712aebedefbb2425cd84f57570708a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c4f88e1a938da1d63e16db13e169d3c9982142bf4fa12588bbeda9f572a6d4d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3721fe47964dd533229fe15cabb7fd202dd779e2289be8ff845b504ae05f979a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02e1615620285b37657efcaacaa67e5daeec04861635907b2bf99361cb8070ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "551cdbd7b4df447f5034dbacfb3b16fde8820ad5ecfe02d4e66aa81248b9da86"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f83a882d77859c8943ad3aa982d74d349f0f3a96cb871653379970a23d7e27b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "421ace1864d34ad7ec3d812587dedc296e4b076c25eac7b22eb6cf078516f803"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28a0557322e3aced63781f4a69ac1747e80b0c40d28822cc0335708b4dcc8ec9"
   end
 
   depends_on "rust" => :build
@@ -46,7 +46,6 @@ class Rustledger < Formula
     BEANCOUNT
 
     system bin/"rledger", "check", testpath/"test.beancount"
-    system bin/"bean-check", testpath/"test.beancount"
 
     output = shell_output("#{bin}/rledger query #{testpath/"test.beancount"} \"SELECT account, sum(position)\"")
     assert_match "Assets:Bank:Checking", output

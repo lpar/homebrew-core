@@ -1,22 +1,23 @@
 class IcannRdap < Formula
   desc "Full-rich client for the Registry Data Access Protocol (RDAP) sponsored by ICANN"
   homepage "https://github.com/icann/icann-rdap/wiki"
-  url "https://github.com/icann/icann-rdap/archive/refs/tags/v0.0.28.tar.gz"
-  sha256 "9854f31c96086cc54110c7d86e7f4c99a37810aab0a9e2b9331d68918c374ede"
+  url "https://github.com/icann/icann-rdap/archive/refs/tags/v0.0.29.tar.gz"
+  sha256 "f7a717aa9d428af9e88fac770f0433bc557c82d682f0091d4e1d12a420fd428f"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34c9b6a21e70a646e7290d1d19486733fae11bdd5aba240ac4923ce1b57427ea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "043a2c7f3e5045f65d95d862697992cd6bf708aa49101c849980e6f2623fec8c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0699d4673f303f1b4ebc80d82fd1b8b8d5419d91ec98c5f58c7a89b5ae6d7827"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85d2d8c72ec6a3ac1fc4d416709b45be42e4791b9299c388b50bc3d17d6ab7d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "598e86e5b1bec87ed8de06c60445d4a18b686c78a6d827bf7cbdfe61cd5b0e14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fada26f6ba2ed67ea9caa729f9cdb5e4a75f253cfe3d9ae00addbcf614334a2c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b992d8bbbc8664e39e3dd93debb5cc90a948e390666ec3b6cac3323ce1b1e66"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52d746280f938117e8af6c4863409516c5e0fe759fd27a1549d1fce4c28f3884"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f16e5b9e5163bece9f19309597ecc2cc6c7c073505236f97d8fdfcb013271dd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2567415f6046ac8b5f0dc038007584733c0218a79403002a750653909890a5cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9932b6b8e14183790413d28f81e8cbb92e558cfc60a1b89dcd6cc263884535e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cd072fe1c3c257531c58384936073c01c0fae6d3da6cde3a4203c99275dfbd1"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   conflicts_with "rdap", because: "rdap also ships a rdap binary"
 

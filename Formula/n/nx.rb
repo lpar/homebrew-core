@@ -1,18 +1,18 @@
 class Nx < Formula
   desc "Smart, Fast and Extensible Build System"
   homepage "https://nx.dev"
-  url "https://registry.npmjs.org/nx/-/nx-22.6.5.tgz"
-  sha256 "8892df0f6932e3048cadd5ceedd6491be92ea23bc4ff291deafb81a50761c25b"
+  url "https://registry.npmjs.org/nx/-/nx-22.7.2.tgz"
+  sha256 "6e1b20072baef61b32c31294bbc42ca528faaf169faec522fc083595a0da6220"
   license "MIT"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "10609d2e7e67d30e3dfe7ce1e0eef086ba4ce3ae1c4a595d73d85315734a4434"
-    sha256 cellar: :any,                 arm64_sequoia: "664e71063d4c656cfa35d33fbef1529938c6bfed1d2585865c63bc02f50b30ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "664e71063d4c656cfa35d33fbef1529938c6bfed1d2585865c63bc02f50b30ab"
-    sha256 cellar: :any,                 sonoma:        "7f1a78d42e7ebcf33c815fa008537c64f040b7c4899ec44a29113dadc24e629f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "20b4e7a5fc10c8ddf1fbeaae4fe2ae18ce433bd0a9d3cdc5152466bbc4c305b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34e7b8234906989e02526dcfb3fcd0888276cea8566ddef891451e716555aa2f"
+    sha256 cellar: :any,                 arm64_tahoe:   "597fe1b0060765f897b337c72fe504a3f46582b609a93a440382229ad1e8dc3e"
+    sha256 cellar: :any,                 arm64_sequoia: "93af89e8475ed82e7db959e2d3093d4cd4f5d062fef6931c5ab3fc8cfe863885"
+    sha256 cellar: :any,                 arm64_sonoma:  "93af89e8475ed82e7db959e2d3093d4cd4f5d062fef6931c5ab3fc8cfe863885"
+    sha256 cellar: :any,                 sonoma:        "9ea371240c4461d356b975b3f7612d928513269d9ae351fbf52879b3e2cc3723"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f5919534642e9f61f2081bc4030ba36db52c9b693033a929fafdb9896f8d6e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4671007804e43ed8159d3e77a489d978470a1103267de78c3f7cd35af584d75"
   end
 
   depends_on "node"

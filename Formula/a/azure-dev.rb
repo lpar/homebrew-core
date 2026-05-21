@@ -1,18 +1,18 @@
 class AzureDev < Formula
   desc "Developer CLI that provides commands for working with Azure resources"
   homepage "https://aka.ms/azd"
-  url "https://github.com/Azure/azure-dev/archive/refs/tags/azure-dev-cli_1.23.15.tar.gz"
-  sha256 "9ee0a898d16cd344c9cfee49c4dc6dad0ed305cbbfb87ffb20c688a51bbcbbc9"
+  url "https://github.com/Azure/azure-dev/archive/refs/tags/azure-dev-cli_1.25.1.tar.gz"
+  sha256 "a22e3ba558aeab89d793433dfad69159bb22473885f87bad37e20d9f3b08a7ac"
   license "MIT"
   head "https://github.com/Azure/azure-dev.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4229507534dfd47301bc7cc40d3e841f8ca96ec206d7e0ab39bc36a54e599772"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4229507534dfd47301bc7cc40d3e841f8ca96ec206d7e0ab39bc36a54e599772"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4229507534dfd47301bc7cc40d3e841f8ca96ec206d7e0ab39bc36a54e599772"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3002d6f9cbcb56959c143494a0b64314937e8f13e631366820f83a3b9f5a25c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "68982e18d905b2f1a33d03d8b719060286861eda1ca5887cba4c9b9fc766b228"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ce6e3e6544dde54a150bfa2d9294fb8c4e42de8b40ae4fee77f00fe76d7e822"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f27ea17eb1f3dc405841df8608c21d539255e1583ba26ebc513f5b7bb83b1b7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f27ea17eb1f3dc405841df8608c21d539255e1583ba26ebc513f5b7bb83b1b7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f27ea17eb1f3dc405841df8608c21d539255e1583ba26ebc513f5b7bb83b1b7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f76344541880b50905b67dd2f4a43ed08ba174c0d095de2ca83f23bb0d7b5b0c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00102077bc52e1e499ce5246862824f16170b3affb2329ef3fd657c690a4409b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65591d45df48c194197a2e71cbf7a185466dd13ed109e1ee95989072f5c31be2"
   end
 
   depends_on "go" => :build

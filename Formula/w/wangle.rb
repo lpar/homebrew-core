@@ -1,19 +1,19 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/archive/refs/tags/v2026.03.30.00.tar.gz"
-  sha256 "1bddd34e8c95ce6b427261083f7144342958036137d33210aa223b51109b4d94"
+  url "https://github.com/facebook/wangle/archive/refs/tags/v2026.05.18.00.tar.gz"
+  sha256 "9c6ce936a0306b022c328bef743d0c305e2ebacf825a1e023128bafed5c835a3"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/facebook/wangle.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1f553be2dbecf500c3b6cff7cbc59ef725d9214084d64f8d97a944de3ea565f7"
-    sha256 cellar: :any,                 arm64_sequoia: "55eb48c3814fb614da6a5e178c84647dc3635a8af6564859513951466ae2c4ff"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b3891c6c25037951971f9828a9073edee05d80dcb814b8fd33b2e7ad1bb7f36"
-    sha256 cellar: :any,                 sonoma:        "ad6a376ff5e80a1b38e06aa348acc20df3720a6596dfd7c712c78d4e02ed631a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc912f3de4167d7c57817f79a9ff4fc8cafe2d897c8fab6e05d5b73396ff47d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf46a25ede521244d9bf3a72a992fc09dff3ce3ed453d3f0545b0d56c1612073"
+    sha256 cellar: :any,                 arm64_tahoe:   "790f1ff37b94c97fd9cefb6cf94d1a35e98935dbf1653be69f2b850835430660"
+    sha256 cellar: :any,                 arm64_sequoia: "c493b0893bdb8a7ad68eba0be031942d475c0b63a939c1a7233af035f1825378"
+    sha256 cellar: :any,                 arm64_sonoma:  "6be3839761c9477f2f98b9eaf17c655a27d8d3cf45ae0c9dcd095dc7cf97c938"
+    sha256 cellar: :any,                 sonoma:        "be792ea1f2c12f701ec6158d4590f24d021b10f2d658149fd4e4c2762aca55fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e53b583deebe1324b59ce553a4885cc1131de5863c152864935e4d8e13044ddf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aef688d30638234d52cd2d954ab482bdabef503dd9a20258c58a2b196f56392c"
   end
 
   depends_on "cmake" => [:build, :test]

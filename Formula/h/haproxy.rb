@@ -1,8 +1,8 @@
 class Haproxy < Formula
   desc "Reliable, high performance TCP/HTTP load balancer"
   homepage "https://www.haproxy.org/"
-  url "https://www.haproxy.org/download/3.3/src/haproxy-3.3.6.tar.gz"
-  sha256 "e69cb5dc59e4eb1ff72bcebf30d55f0919803c686e428c0c3a5903f2cf7c1fb6"
+  url "https://www.haproxy.org/download/3.3/src/haproxy-3.3.10.tar.gz"
+  sha256 "6aa919a13f3a575416ef0ae45da0ecb35f1a8d004641dd684fe9b53e646891f2"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,13 +11,12 @@ class Haproxy < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "eb696dd19c1edd20a6a33185ef8f8ccc5a52b4eb10c7f2ac52fdd6ab4ba6d7a7"
-    sha256 cellar: :any,                 arm64_sequoia: "88243f7d4166fdba255562df749f3c24bc18881aa42a71872edc210205179cef"
-    sha256 cellar: :any,                 arm64_sonoma:  "a3bf5a2ba20fe45b1a1fb9e7f9a9ac1cb8a6b296ae214d46a7dcc852cdcf4290"
-    sha256 cellar: :any,                 sonoma:        "26ca34caa5ccf6ffed9b61b9e1b8fe6dd3b7f72ac67ba3838f3252d72d9462b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "998bcb15207d511b36f0ed915d34e46b475503c083eede9ddaae908df202e46a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f618bc22b2f79e17e92552da693690efba83041fc43b8ac9cfd4e25cad42135e"
+    sha256 cellar: :any,                 arm64_tahoe:   "271aee42db7a6a6810b1be8290fc2fcc291cc0e2ce8f481337124201815e433c"
+    sha256 cellar: :any,                 arm64_sequoia: "9e0fdee9436f0a723d86ce0d01a4d4a7489f0fbe815517e1616c4ebeb90629e7"
+    sha256 cellar: :any,                 arm64_sonoma:  "7b26c71d5604b98c145b326fd3eb92d0f8565693642791885a278bc840fc62a4"
+    sha256 cellar: :any,                 sonoma:        "4e9f3d410c272da769ee9e8ac74d374f959b8fd42e423cecc8d008bddc13d286"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb30fe4a32cb9a59c51bf5495d43aee5cb7281ba888d40604f12260a19fccb34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "687dd3d5edf6bc71acb6b1d4b717aada67ea42813c12cf7577753fb6bc368aa5"
   end
 
   depends_on "openssl@3"

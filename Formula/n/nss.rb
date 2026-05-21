@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://firefox-source-docs.mozilla.org/security/nss/index.html"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_122_1_RTM/src/nss-3.122.1.tar.gz"
-  sha256 "de5a655da82a67e502b802ae0b53f3eb02ea53f509c3fc0ab54a892e04493bbf"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_124_RTM/src/nss-3.124.tar.gz"
+  sha256 "80da9f1cbcb267293b2248818d288bc02f874d6a34f1989a2828401d74a0bc9b"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -15,12 +15,12 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ecac0709447e578ad4ff42cf08404501b5ae9bd9200350e5e3aaee88ba2865b2"
-    sha256 cellar: :any,                 arm64_sequoia: "5da059c788834c3935d41e3007719d0e7118c976f659649336ab3ea706dc1b43"
-    sha256 cellar: :any,                 arm64_sonoma:  "1810aea7a9d8e150c76549bc65d670920f9dba7268ed816869be7b1aa9796b19"
-    sha256 cellar: :any,                 sonoma:        "633fa6ce9c1e60385f8f6b27385bf6ee3e72fec101184c6bffa32e69c02352ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "636793b753ae03ecff0ce8f28254376886c0ed7ccb80ee519537bb1eb9bf1401"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c08d5f30aa896a09318eec6888e7384573c6b99e11c997fcb717e1096a68c5c7"
+    sha256 cellar: :any,                 arm64_tahoe:   "6441abee1d6e873bc100f92b9f7db22bfed703229778188af712a64a6aea5925"
+    sha256 cellar: :any,                 arm64_sequoia: "2867d46cfa3c28a508e9978de3536d446f14092fffdf00c07e7184ce2b856a35"
+    sha256 cellar: :any,                 arm64_sonoma:  "36f7e0e2e8a19948acea79abe4c2c443cfb3150424d30ceb862b5317044a731d"
+    sha256 cellar: :any,                 sonoma:        "ce5b1bed99de6f7859fd1c27fdf5c4eb0abf0f7614c83ae9fca60371e678ad93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb1084c3378d57dda326c5f247c50edac553f08622dbc86649ed189eab78c63c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08e107f008b5aab4c7db5834886ce843ec057d2ef5ba9563177a00aa9ecb3d8b"
   end
 
   depends_on "nspr"

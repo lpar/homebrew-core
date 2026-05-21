@@ -1,18 +1,18 @@
 class Nanobot < Formula
   desc "Build MCP Agents"
   homepage "https://www.nanobot.ai/"
-  url "https://github.com/nanobot-ai/nanobot/archive/refs/tags/v0.0.66.tar.gz"
-  sha256 "e7920c474c2bad938bd34e55ae81b469df91cbf75d58e0978b0d0f7a41daffba"
+  url "https://github.com/obot-platform/nanobot/archive/refs/tags/v0.0.80.tar.gz"
+  sha256 "33582ce0ae6b540f7a0e8c68547410955d8f2653b6790c8a7e4f52cbce72f4d5"
   license "Apache-2.0"
-  head "https://github.com/nanobot-ai/nanobot.git", branch: "main"
+  head "https://github.com/obot-platform/nanobot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6bf0b5e4ea160e28e8a1d8e1a585fb82c5a980dd23c4f2595e04e3234107144f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c09585190e3bb08248c2450e49519d7d61b9f8231c9e609ac88e2a060d0fda50"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f27fb568c94f84dfd766d1917d9a3c7b6c57a943f982b06b669e4bebb3963c3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bd3be0d1fb72428b11ce5ded018f357b6b3514e9d4b855bbd0f44c248dc2dfdb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "936abeb7fb3a154e0fda0bc5a01508d5feb3519f8959b5e28857db00c7eaa910"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f29bcd31bee723e80b51cfc703d127c9ae30cc9b4c07893762b3aea804a33161"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "68584bf47e9a139d45928e304c8438b614dcf1699cad5b4c3c42f45dab3e70ae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73602e1788bde1feebb3d6eceb49f6b5b01603656f59877f44a28ce4f6a66375"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c21dccf51d69ed0158f659c45840082f5c72f8298a5a6f6308a6a427f24bacef"
+    sha256 cellar: :any_skip_relocation, sonoma:        "de78617e18f7d749a1956f4609151e0ff880c08b832806e21a969627f0ab2c5f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ba3f3a28d4dee06455190b9ff9c37e70cf9d2af32fadeef91a306f81e3f2913"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ac9286975858454fa48755bad17676546766210d87a99783edd1cda2eada4a3"
   end
 
   depends_on "go" => :build
@@ -20,8 +20,8 @@ class Nanobot < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/nanobot-ai/nanobot/pkg/version.Tag=v#{version}
-      -X github.com/nanobot-ai/nanobot/pkg/version.BaseImage=ghcr.io/nanobot-ai/nanobot:v#{version}
+      -X github.com/obot-platform/nanobot/pkg/version.Tag=v#{version}
+      -X github.com/obot-platform/nanobot/pkg/version.BaseImage=ghcr.io/nanobot-ai/nanobot:v#{version}
     ]
     system "go", "build", *std_go_args(ldflags:)
 

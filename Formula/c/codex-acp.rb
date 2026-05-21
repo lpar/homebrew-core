@@ -1,30 +1,34 @@
 class CodexAcp < Formula
   desc "Use Codex from ACP-compatible clients such as Zed!"
   homepage "https://github.com/zed-industries/codex-acp"
-  url "https://github.com/zed-industries/codex-acp/archive/refs/tags/v0.11.1.tar.gz"
-  sha256 "21b7ffed68e817df638c8e939c376e0ccd2f6f91b420730b71d3ba418c3b1205"
+  url "https://github.com/zed-industries/codex-acp/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "0813038f51360362221ea8a525c46b5de6272659bffa63853391d6e264f738d8"
   license "Apache-2.0"
   head "https://github.com/zed-industries/codex-acp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bdb0926b605c0f8c05be807ab9a4811e2f8531a82b992726b294de10982e4f76"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "430ba22fe56d6d1781ba178e8affc717034dc691f9394b6331efebf944ae5230"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66884449956d2a4e3a8cf745bdadf744260cbd5d990e74e5e4421c9cf351e054"
-    sha256 cellar: :any_skip_relocation, sonoma:        "088003095fbb45a9e6da4c3f60619e4f9a50d4c238d888d5833c73493cdfa67e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f34f68803bda2a3ba988a180ce8678a31edd848bf0e0d7e33404ac7a4e5aa91f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "513ed77534857522d0d480f977223779e895f0d8b1c7257d27d3b16bd49b34e1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cb93a1508a5fe0ac2bbe08741d01ae8da27d58db4259a1a18b5f0926a7e37446"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3366d7766d69d5d52b7ac01ed49b806d91e7793182a98668092a9bf72d7668a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "04a48f94064b02854089944261de81c75f06d93b1baa57fceec96053cbfd0f0d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "87ac7a183a38adec3d25bcc54ba0e29b8265bac745a23884eb795bf1467ab91d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e1baa85540c3db782a933c7107b2758c0a70d22594300471b71250625bb99bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b12e5979e0ea8bd2288f66c58bd7e3904801fb70e8f2901c70f3e28bb626729"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+
+  uses_from_macos "bzip2"
 
   on_linux do
-    depends_on "libcap"
+    depends_on "libcap" => :build
+    depends_on "openssl@4"
     depends_on "zlib-ng-compat"
   end
 
   def install
+    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix if OS.linux?
     system "cargo", "install", *std_cargo_args
   end
 

@@ -1,8 +1,8 @@
 class RattlerIndex < Formula
   desc "Index conda channels using rattler"
   homepage "https://github.com/conda/rattler"
-  url "https://github.com/conda/rattler/archive/refs/tags/rattler_index-v0.27.23.tar.gz"
-  sha256 "4e3d8180eaeb2a4242757be6b2937655cb9027dfb347ef79562bd6e9496e6e1d"
+  url "https://github.com/conda/rattler/archive/refs/tags/rattler_index-v0.30.1.tar.gz"
+  sha256 "321483f684920d838da9b55ebe7eef38a8e543299ea746a1e60097fa5a0b1c87"
   license "BSD-3-Clause"
   head "https://github.com/conda/rattler.git", branch: "main"
 
@@ -12,23 +12,24 @@ class RattlerIndex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f4dea89fd6e979ed5e339ef8151d5250cb1271cad296c6b4e569331cc5e30719"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bde10a33b3854dfcc10605ebb1f841b52eb4a1c3482a02571c7ae9f4a4f9cc72"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b5d1c068c736748138eccd5b8ec7bd347ec3d7a0342545bfb9a68b639aaceb9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4a9c6f0c39b31bfbdc3fc926d558acadd85edfa6b0e6b0aa3559d20640430f83"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0188ae5992bda8d6d2187cb21f50efe3748c43a0b640faa5fb112d9f3bf4c4f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "863c0661cfc199ee8b94527a734e73feac37ffda5c803905f43db8ce2f462853"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4a7b2e914bd5b901336e08c5ca0cd3223faae3cf00f906842e024105751a3a02"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "45c7c828f4a0f714919a468a03384000d455dc94868111293584c6ed3d01cecb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa4ee6ce63b66fb1bd71eca2ff9877e7f6942742589abb340b3c7b344f159cb0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "52e1cfcc8ea1ded01904c9d4ffa6a5b014002dd0ecb64d0a4a1787f292a8e7f1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18b0903d7640f56217a0c66f036c4626b6b7bf6a29c79cee9e97f57507a62dcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f7be8d2c4074f753d160eaa5ba407327bb7d1ba61948229004b73ae3e4de985"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
-    features = %w[native-tls rattler_config s3]
+    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix if OS.linux?
+    features = %w[native-tls s3]
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "crates/rattler_index", features:)
   end
 

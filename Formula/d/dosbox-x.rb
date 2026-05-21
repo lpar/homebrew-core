@@ -1,9 +1,10 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2026.03.29.tar.gz"
-  sha256 "c244c1910444a0ad886d9bae05cc72b3ef036e340d5e2fc33edf364c0dce344e"
+  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2026.05.02.tar.gz"
+  sha256 "5ab3584870bec378b495242f20f03ecbef2cd032a128ee3394a88ff7a53cd914"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
 
@@ -19,12 +20,12 @@ class DosboxX < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "abfe3c35d1a3a979b7ffba33d3935bfdd2d9f7d66d99d584bba15146cdb00826"
-    sha256                               arm64_sequoia: "25910f23fb9886b8d53eef621d04e1bba16ffca3208539909535c59e8b4acd04"
-    sha256                               arm64_sonoma:  "ee50d893c8d2a91fd4bf2499839907f5c44a4593a62b8adefee498031fd67f81"
-    sha256                               sonoma:        "adf6f26f58dda10a72fbe863da1d020e8f5324a11cbd2d38c2d969cfa366ec4c"
-    sha256                               arm64_linux:   "8f1a3554eb1c1f31fde14c65d85c47e799edd76633d3070c796117a3af5aa657"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d40415deaa37d47ce17b189af832bbf90902e9486891157219bc0a354325ebdd"
+    sha256                               arm64_tahoe:   "b93097b7d97c5d1b260b1c59cca9de3b217f0babe26e1606554a0a4e5d7af1ef"
+    sha256                               arm64_sequoia: "71a04385d8976a33ed730dd95555839bda1dfd22487beef288ce17a9248db6b4"
+    sha256                               arm64_sonoma:  "bbf0d71bca5601228233c2b7410bf70338131a264ed24a5f02d8eef79ca1c0c1"
+    sha256                               sonoma:        "e267b5f70cbd50cb2c46fa18d0f03bfbe843a7754c13cebcf729a6a07e20a2ed"
+    sha256                               arm64_linux:   "b550472038030cad19fc72235354143ec65b00c3a197df601d0a97692ee53a00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "805d703e27fc980a4a9e0595d7ef9039693d3f66d8be2ab54c140030459a465c"
   end
 
   depends_on "autoconf" => :build
@@ -37,6 +38,7 @@ class DosboxX < Formula
   depends_on "libpng"
   depends_on "libslirp"
   depends_on "sdl2"
+  depends_on "sdl2_net"
 
   uses_from_macos "ncurses"
 

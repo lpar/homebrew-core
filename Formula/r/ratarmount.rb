@@ -3,14 +3,14 @@ class Ratarmount < Formula
 
   desc "Mount and efficiently access archives as filesystems"
   homepage "https://github.com/mxmlnkn/ratarmount"
-  url "https://files.pythonhosted.org/packages/9a/38/b99223940402cc2eba3b6c8586fbbfb9e91cc7fda691fc4e5d4cdbda4c86/ratarmount-1.2.2.tar.gz"
-  sha256 "4f0675d4ac4562a413ae4d381829368a02c8f5b518a85254f1ff08dafbe7ab7f"
+  url "https://files.pythonhosted.org/packages/a5/80/f7f628af7652a89b7f400b23fea17395dd6b27949ae8a45b6e81d69bd810/ratarmount-1.3.0.tar.gz"
+  sha256 "9e96f0f887db67a3ea68c4ecc625c05a3636cd8f29d80491eb170d934d3caa00"
   license "MIT"
   head "https://github.com/mxmlnkn/ratarmount.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "d7e1c621794b272e190e7c207c045e44c3da689d4f8f903bd7a067188d35f75c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "59520ffb4fc93a8a0470081a5c97125021dbea5caf59962795063170a8f9225a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "e31c0904f80929ccc121d6cd8b8760e850684e79580cfc1c3c39e9373b623b12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9228d87d15cd61d745931f8eec27c1f99491567e7fa756143964f401d6f93f3d"
   end
 
   depends_on "libfuse" => :no_linkage
@@ -35,8 +35,8 @@ class Ratarmount < Formula
   end
 
   resource "indexed-zstd" do
-    url "https://files.pythonhosted.org/packages/57/b6/96ce71640c3896cb4fcc4f071eb321d05016d64ea694d5d346da12c911d9/indexed_zstd-1.7.0.tar.gz"
-    sha256 "b08f417c562f7e7c91454735d5ecec0a132fd0f4aa789b50bb1c6b466e14b504"
+    url "https://files.pythonhosted.org/packages/de/c8/ccd92a94357bc84528adc7237561e5926e752709bfa707c4e4e42703ad16/indexed_zstd-1.7.1.tar.gz"
+    sha256 "0eca6a4f5e6b905eaa1acd3d97b1ade34078a829483a43839f5cf2efe97150f4"
   end
 
   resource "inflate64" do
@@ -100,8 +100,8 @@ class Ratarmount < Formula
   end
 
   resource "ratarmountcore" do
-    url "https://files.pythonhosted.org/packages/69/db/845aac13bee32f391606ae4118b21564f0e2537af5d2882e0ff1ac3b6e47/ratarmountcore-0.10.3.tar.gz"
-    sha256 "259644bc057b844ba6f73edd9923118757e0933f2ea6c54d841e2f897f2a5f5f"
+    url "https://files.pythonhosted.org/packages/20/b1/67924bdf4a2a8648261bacf2e71a48f7c1183eb6c901e36859835076ff7e/ratarmountcore-0.11.0.tar.gz"
+    sha256 "adb920ce602ca86d37ba7e44e46cf0ad49422075351e12c5b2ca436d108a1809"
   end
 
   resource "texttable" do
